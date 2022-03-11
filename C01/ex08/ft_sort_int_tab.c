@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 18:16:55 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/10 18:24:57 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/11 01:58:35 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/11 02:01:30 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-// #include <stdio.h>
-
-int	ft_strlen(char *str)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int	n;
+	int	i;
+	int	j;
+	int	temp;
 
-	n = -1;
-	while (str[n] != '\0')
+	i = 0;
+	while (i < size)
 	{
-		n++;
+		j = i + 1;
+		while (j < size)
+		{
+			if (tab[i] > tab[j])
+			{
+				temp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = temp;
+			}
+			j++;
+		}
+		i++;
 	}
-	return (n);
 }
-// int main(void)
-// {
-//     char str[] = "rOLA";
-//     ft_strlen(str);
-// }
