@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
+//#include <unistd.h>
 // #include <stdio.h>
 
 int	ft_strlen(char *str)
 {
 	int	n;
 
-	n = -1;
+	n = 0;
 	while (str[n] != '\0')
 	{
 		n++;
@@ -26,6 +26,6 @@ int	ft_strlen(char *str)
 }
 // int main(void)
 // {
-//     char str[] = "rOLA";
+//     char str[] = "rOLAssss";
 //     ft_strlen(str);
 // }
