@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 17:12:45 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/12 17:18:07 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/12 17:20:10 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/12 17:20:12 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
+#include <unistd.h>
 
-int	ft_str_is_numeric(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!('0' <= str[i] && str[i] <= '9'))
+		if (!('a' <= str[i] && str[i] <= 'z'))
 		{
-			return (0);
+            return (0);
 		}
 		i++;
 	}
@@ -29,9 +29,9 @@ int	ft_str_is_numeric(char *str)
 }
 // int	main(void)
 // {
-//      char str[] = "dasjkhdJ/KHKJH";
+// 	    char str[] = "";
 //      int test;
-//      test = ft_str_is_numeric(str);
+// 	    test = ft_str_is_lowercase(str);
 //      char a = test+'0';
 //      write(1, &a, 1);
 // }

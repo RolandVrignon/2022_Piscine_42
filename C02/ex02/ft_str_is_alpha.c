@@ -30,6 +30,9 @@ int	ft_str_is_alpha(char *str)
 }
 // int	main(void)
 // {
-// 	char str[] = "dasjkhdJ/KHKJH";
-// 	ft_str_is_alpha(str);
+//      char str[] = "dasjkhdJ/KHKJH";
+//      int test;
+//      test = ft_str_is_alpha(str);
+//      char a = test+'0';
+//      write(1, &a, 1);
 // }
