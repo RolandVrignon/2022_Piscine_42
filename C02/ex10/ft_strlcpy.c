@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 19:20:36 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/12 19:20:41 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/12 21:40:03 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ int	str_len(char *str)
 	return (i);
 }
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int	dest_length;
-	int src_length;
-	int i;
+	int	src_length;
+	int	i;
 
 	dest_length = str_len(dest);
 	src_length = str_len(src);
 	i = -1;
-	
 	if (dest_length + 1 < size)
 	{
 		while (i++ <= src_length)
