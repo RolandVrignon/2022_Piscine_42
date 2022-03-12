@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 
 int	str_len(char *str)
 {
@@ -26,25 +26,33 @@ int	str_len(char *str)
 
 unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-    int	dest_length;
-	int	i;
+	int	dest_length;
+	int src_length;
+	int i;
 
 	dest_length = str_len(dest);
-	i = 0;
-	if (size < dest_length)
+	src_length = str_len(src);
+	i = -1;
+	
+	if (dest_length + 1 < size)
 	{
-		while (i < size)
-		{
+		while (i++ <= src_length)
 			dest[i] = src[i];
-			i++;
-		}
 	}
+	else if (size != 0)
+	{
+		while (i++ <= src_length)
+			dest[i] = src[i];
+		dest[size - 1] = '\0';
+	}
+	return (src_length);
 }
 
-int	main(void)
-{
-	char dest[] = "Unfsa";
-	char src[] = "Roland";
+// int	main(void)
+// {
+// 	char src[] = "La piscine c'est cool\n";
+// 	char dest[19];
+// 	int test;
 
-	ft_strlcpy(dest, src, 7);
-}
+// 	test = ft_strlcpy(dest, src, 2);
+// }
