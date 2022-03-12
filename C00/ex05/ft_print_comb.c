@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:44:29 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/10 21:44:02 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/12 13:33:42 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_print_comb(void)
 	}
 }
 
-int	main(void)
-{
-	ft_print_comb();
-}
+//int	main(void)
+//{
+//	ft_print_comb();
+//}
