@@ -24,7 +24,7 @@ int	str_len(char *str)
 	return (i);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int	dest_length;
 	int	src_length;
@@ -33,21 +33,20 @@ char	*ft_strcpy(char *dest, char *src)
 	dest_length = str_len(dest);
 	src_length = str_len(src);
 	i = 0;
-	if (dest_length >= src_length)
+	if (n <= src_length && n <= dest_length)
 	{
-		while (src[i] != '\0')
+		while (i < n)
 		{
 			dest[i] = src[i];
 			i++;
 		}
-		dest[i + 1] = '\0';
 	}
 }
 
 // int	main(void)
 // {
-// 	char dest[] = "Unf";
+// 	char dest[] = "Unfsa";
 // 	char src[] = "Roland";
 
-// 	*ft_strcpy(dest, src);
+// 	*ft_strncpy(dest, src, 5);
 // }
