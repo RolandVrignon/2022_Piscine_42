@@ -1,52 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 16:30:22 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/12 16:30:25 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/12 16:31:08 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/12 16:46:32 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
+#include <unistd.h>
 
-int	str_len(char *str)
+int	ft_str_is_alpha(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
+		if (!('A' <= str[i] && str[i] <= 'Z')
+			&& !('a' <= str[i] && str[i] <= 'z'))
+		{
+			return (0);
+		}
 		i++;
 	}
-	return (i);
+	return (1);
 }
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	int	dest_length;
-	int	src_length;
-	int	i;
-
-	dest_length = str_len(dest);
-	src_length = str_len(src);
-	i = 0;
-	if (n <= dest_length)
-	{
-		while (i < n)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-	}
-}
-
 // int	main(void)
 // {
-// 	char dest[] = "Unfsa";
-// 	char src[] = "Roland";
-
-// 	*ft_strncpy(dest, src, 3);
+// 	char str[] = "dasjkhdJ/KHKJH";
+// 	ft_str_is_alpha(str);
 // }
+
+// !('A' <= str[i]  && str[i] <= 'Z') || ('a' <= str[i] && str[i] <= 'z')
