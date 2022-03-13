@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-char	ft_strcapitalize(char *str)
+char	*ft_strcapitalize(char *str)
 {
 	int	i;
 
@@ -31,12 +31,12 @@ char	ft_strcapitalize(char *str)
 				|| ('A' <= str[i - 1] && str[i - 1] <= 'Z')
 				|| ('0' <= str[i - 1] && str[i - 1] <= '9')))
 				str[i] = str[i] + 32;
-		write(1, &str[i], 1);
 		i++;
 	}
+	return (str);
 }
 // int	main(void)
 // {
-//     char str[] = "salut, coMMEnt TU /vas ? 42mots cinquante+et+un";
+//     char str[] = "salut, comment tu vas ? 42mots te-deu; cinte+et+un";
 //     ft_strcapitalize(str);
 // }
