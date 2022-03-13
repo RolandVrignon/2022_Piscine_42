@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 02:25:58 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/12 14:17:50 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/13 20:13:41 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strcpy(char *dest, char *src)
 		}
 		dest[i] = '\0';
 	}
-	return(dest);
+	return (dest);
 }
 
 // int	main(void)
