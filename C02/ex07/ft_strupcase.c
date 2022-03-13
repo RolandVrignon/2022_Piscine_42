@@ -20,9 +20,7 @@ char	ft_strupcase(char *str)
 	while (str[i] != '\0')
 	{
 		if ('a' <= str[i] && str[i] <= 'z')
-		{
 			str[i] = str[i] - 32;
-		}
 		i++;
 	}
 	return (*str);

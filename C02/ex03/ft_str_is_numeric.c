@@ -20,9 +20,7 @@ int	ft_str_is_numeric(char *str)
 	while (str[i] != '\0')
 	{
 		if (!('0' <= str[i] && str[i] <= '9'))
-		{
 			return (0);
-		}
 		i++;
 	}
 	return (1);

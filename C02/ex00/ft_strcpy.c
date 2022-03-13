@@ -46,7 +46,7 @@ char	*ft_strcpy(char *dest, char *src)
 
 // int	main(void)
 // {
-// 	char dest[] = "Unf";
+// 	char dest[] = "Roland";
 // 	char src[] = "Roland";
 
 // 	*ft_strcpy(dest, src);
