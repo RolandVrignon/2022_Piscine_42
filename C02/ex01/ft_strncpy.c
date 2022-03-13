@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:30:22 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/12 16:30:25 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/13 01:46:16 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int	str_len(char *str)
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-
 	int	i;
 
 	i = 0;
-
 	while (src[i] != '\n' && i < n)
 	{
 		dest[i] = src[i];
