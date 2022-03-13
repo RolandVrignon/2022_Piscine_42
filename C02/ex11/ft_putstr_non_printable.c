@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 18:43:25 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/12 18:43:30 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/12 21:38:30 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/13 01:27:04 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
+#include <unistd.h>
 
-int	ft_str_is_printable(char *str)
+void	char_to_hexadecimal(char decimal)
+{
+	int		n;
+	int		reminder;
+	char	*base;
+
+	base = "0123456789abcdef";
+	n = decimal / 16;
+	reminder = decimal % 16;
+	write(1, "\\", 1);
+	write(1, &base[n], 1);
+	write(1, &base[reminder], 1);
+}
+
+void	ft_putstr_non_printable(char *str)
 {
 	int	i;
 
@@ -20,18 +34,14 @@ int	ft_str_is_printable(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] < 32)
-		{
-			return (0);
-		}
+			char_to_hexadecimal(str[i]);
+		else
+			write(1, &str[i], 1);
 		i++;
 	}
-	return (1);
 }
-// int	main(void)
+// int main(void)
 // {
-//     char str[] = "dfd\nasdhkj";
-//     int test;
-//     test = ft_str_is_printable(str);
-//     char a = test+'0';
-//     write(1, &a, 1);
+//     char test[] = "Coucou\ttu vas bien ?";
+//     ft_putstr_non_printable(test);
 // }

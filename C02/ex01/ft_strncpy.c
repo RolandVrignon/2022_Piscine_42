@@ -26,21 +26,22 @@ int	str_len(char *str)
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	dest_length;
-	int	src_length;
+
 	int	i;
 
-	dest_length = str_len(dest);
-	src_length = str_len(src);
 	i = 0;
-	if (n <= dest_length)
+
+	while (src[i] != '\n' && i < n)
 	{
-		while (i < n)
-		{
-			dest[i] = src[i];
-			i++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
 
 // int	main(void)
