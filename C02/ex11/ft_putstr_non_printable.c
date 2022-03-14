@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-void	char_to_hexadecimal(char decimal)
+void	char_to_hexadecimal(unsigned char decimal)
 {
 	int		n;
 	int		reminder;
@@ -32,7 +32,7 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		if (str[i] < 32 || str[i] == 127)
 			char_to_hexadecimal(str[i]);
 		else
 			write(1, &str[i], 1);
@@ -41,6 +41,6 @@ void	ft_putstr_non_printable(char *str)
 }
 int main(void)
 {
-    char test[] = "Coucou\ntu vas bien ?";
+    char test[] = "Coucou\btu vas bi🌭en ?";
     ft_putstr_non_printable(test);
 }
