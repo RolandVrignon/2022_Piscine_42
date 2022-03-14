@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 15:17:33 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/14 15:46:12 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/14 16:03:46 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/14 16:03:48 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	*ft_strcat(char *dest, char *src)
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -21,7 +21,7 @@ char	*ft_strcat(char *dest, char *src)
 	j = 0;
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0')
+	while (src[j] != '\0' && j <= size - 1)
 	{
 		dest[i] = src[j];
 		i++;
@@ -31,12 +31,14 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-// int main(void)
-// {
-//     char dest[] = "Roland ";
-//     char src[] = "Vrignon";
-//     char * r;
+int main(void)
+{
+    char src[] = "Roland";
+    char dest[] = "Roland";
+    unsigned int n = 2;
+    char * r;
 
-//     r = ft_strcat(dest, src); 
-//     printf("results : %s", r);
-// }
+    r = ft_strncat(dest, src, n); 
+    printf("results : %s", r);
+}
+

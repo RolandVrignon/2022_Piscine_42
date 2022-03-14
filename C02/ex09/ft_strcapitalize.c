@@ -35,8 +35,8 @@ char	*ft_strcapitalize(char *str)
 	}
 	return (str);
 }
-// int	main(void)
-// {
-//     char str[] = "salut, comment tu vas ? 42mots te-deu; cinte+et+un";
-//     ft_strcapitalize(str);
-// }
+int	main(void)
+{
+    char str[] = "salut, comment tu vas ? 42mots te-deu; cinte+et+un";
+    ft_strcapitalize(str);
+}
