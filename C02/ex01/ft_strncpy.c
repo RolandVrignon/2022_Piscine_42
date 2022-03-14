@@ -11,24 +11,32 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
 
-	i = -1;
-	while (++i < n && src[i])
+	i = 0;
+	while (i < n && src[i])
+	{
 		dest[i] = src[i];
+		i++;
+	}
 	while (i < n)
+	{
 		dest[i] = '\0';
+		i++;
+	}
 	return (dest);
 }
 
 int	main(void)
 {
-	char dest[3];
-	char src[] = "Roland";
-	int a = 3;
+    char source[] = "My text will be copied";
+    char destination[] = "123456789012345678901234567890";
+	int a = 10;
 
-	ft_strncpy(dest, src, a);
+	ft_strncpy(destination, source, a);
+	printf("%s\n",destination);
 }
