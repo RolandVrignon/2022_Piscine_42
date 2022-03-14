@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 21:38:30 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/13 01:27:04 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/14 19:53:21 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	char_to_hexadecimal(unsigned char decimal)
 	write(1, &base[n], 1);
 	write(1, &base[reminder], 1);
 }
+
 void	ft_putstr_non_printable(char *str)
 {
 	int	i;
@@ -39,8 +40,9 @@ void	ft_putstr_non_printable(char *str)
 		i++;
 	}
 }
-int main(void)
-{
-    char test[] = "Coucou\btu vas bi🌭en ?";
-    ft_putstr_non_printable(test);
-}
+
+// int main(void)
+// {
+//     char test[] = "Coucou\btu vas bi🌭en ?";
+//     ft_putstr_non_printable(test);
+// }

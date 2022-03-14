@@ -51,12 +51,12 @@ char	*ft_strstr(char *str, char *to_find)
 	}
 	return ('\0');
 }
-int main () {
-   char haystack[] = "MarsMPaaasaadas";
-   char needle[] = "aaa";
-   char *ret;
+// int main () {
+//    char haystack[] = "MarsMPaaasaadas";
+//    char needle[] = "aaassd";
+//    char *ret;
 
-   ret = ft_strstr(haystack, needle);
-   printf("The substring is: %s\n", ret);
-   return(0);
-}
+//    ret = ft_strstr(haystack, needle);
+//    printf("The substring is: %s\n", ret);
+//    return(0);
+// }
