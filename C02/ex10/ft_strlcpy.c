@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+// #include <stdio.h>
+// #include <unistd.h>
 
 unsigned int	str_len(char *str)
 {
@@ -51,18 +51,18 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (src_length);
 }
 
-int	main(void)
-{
-	char src[] = "Hello there, Venus";
-	char buffer[19];
-	int size = 2;
-	int r;
+// int	main(void)
+// {
+// 	char src[] = "Hello there, Venus";
+// 	char buffer[19];
+// 	int size = 10;
+// 	int r;
 
-	r = ft_strlcpy(buffer, src, size);
+// 	r = ft_strlcpy(buffer, src, size);
 
-    printf("Copied '%s' into '%s', length %d\n",
-            src,
-            buffer,
-            r
-          );
-}
+//     printf("Copied '%s' into '%s', length %d\n",
+//             src,
+//             buffer,
+//             r
+//           );
+// }
