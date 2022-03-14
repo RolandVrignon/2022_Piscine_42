@@ -42,15 +42,12 @@ int check_base(char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int i;
+    int long nb;
 
     i = check_base(base);
+    nb = nbr;
     if ( i == 0 )
         return;
-    else if (nbr == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
 	else if (nbr < 0)
 	{
 		write(1, "-", 1);
@@ -71,7 +68,7 @@ void	ft_putnbr_base(int nbr, char *base)
 int main(void)
 {
     int nb = 12453;
-    char base[] = "piou";
+    char base[] = "01";
     
     ft_putnbr_base(nb, base);
 }
