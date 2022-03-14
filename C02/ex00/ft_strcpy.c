@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -26,10 +26,10 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-int	main(void)
-{
-	char dest[] = "Roland";
-	char src[] = "Roland";
+// int	main(void)
+// {
+// 	char dest[] = "Roland";
+// 	char src[] = "Roland";
 
-	*ft_strcpy(dest, src);
-}
+// 	*ft_strcpy(dest, src);
+// }

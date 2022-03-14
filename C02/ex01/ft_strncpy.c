@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+// #include <unistd.h>
+// #include <stdio.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
@@ -31,12 +31,12 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-int	main(void)
-{
-    char source[] = "My text will be copied";
-    char destination[] = "123456789012345678901234567890";
-	int a = 10;
+// int	main(void)
+// {
+//     char source[] = "My text will be copied";
+//     char destination[] = "123456789012345678901234567890";
+// 	int a = 10;
 
-	ft_strncpy(destination, source, a);
-	printf("%s\n",destination);
-}
+// 	ft_strncpy(destination, source, a);
+// 	printf("%s\n",destination);
+// }
