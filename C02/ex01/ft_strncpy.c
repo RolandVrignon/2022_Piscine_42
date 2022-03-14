@@ -10,42 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-
-int	str_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include <unistd.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
-	i = 0;
-	while (src[i] != '\n' && i < n)
-	{
+	i = -1;
+	while (++i < n && src[i])
 		dest[i] = src[i];
-		i++;
-	}
 	while (i < n)
-	{
 		dest[i] = '\0';
-		i++;
-	}
 	return (dest);
 }
 
-// int	main(void)
-// {
-// 	char dest[] = "Unfsa";
-// 	char src[] = "Roland";
+int	main(void)
+{
+	char dest[3];
+	char src[] = "Roland";
+	int a = 3;
 
-// 	*ft_strncpy(dest, src, 3);
-// }
+	ft_strncpy(dest, src, a);
+}

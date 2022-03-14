@@ -32,7 +32,7 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] < 32 || str[i] == 127)
+		if (str[i] < 32 || str[i] > 126)
 			char_to_hexadecimal(str[i]);
 		else
 			write(1, &str[i], 1);

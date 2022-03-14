@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
+#include <stdio.h>
+#include <unistd.h>
 
-int	str_len(char *str)
+unsigned int	str_len(char *str)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -26,32 +27,42 @@ int	str_len(char *str)
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	dest_length;
-	int	src_length;
-	int	i;
+	unsigned int	src_length;
+	unsigned int	i;
 
-	dest_length = str_len(dest);
 	src_length = str_len(src);
-	i = -1;
-	if (dest_length + 1 < size)
+	i = 0;
+	if (src_length + 1 < size)
 	{
-		while (i++ <= src_length)
+		while (i <= src_length + 1){
 			dest[i] = src[i];
+			i++;
+		}
 	}
 	else if (size != 0)
 	{
-		while (i++ <= src_length)
+		while (i <= size - 1)
+		{
 			dest[i] = src[i];
+			i++;
+		}
 		dest[size - 1] = '\0';
 	}
 	return (src_length);
 }
 
-// int	main(void)
-// {
-// 	char src[] = "La piscine c'est cool\n";
-// 	char dest[19];
-// 	int test;
+int	main(void)
+{
+	char src[] = "Hello there, Venus";
+	char buffer[19];
+	int size = 2;
+	int r;
 
-// 	test = ft_strlcpy(dest, src, 2);
-// }
+	r = ft_strlcpy(buffer, src, size);
+
+    printf("Copied '%s' into '%s', length %d\n",
+            src,
+            buffer,
+            r
+          );
+}
