@@ -25,7 +25,6 @@ void	char_to_hexadecimal(char decimal)
 	write(1, &base[n], 1);
 	write(1, &base[reminder], 1);
 }
-
 void	ft_putstr_non_printable(char *str)
 {
 	int	i;
@@ -40,8 +39,8 @@ void	ft_putstr_non_printable(char *str)
 		i++;
 	}
 }
-// int main(void)
-// {
-//     char test[] = "Coucou\ttu vas bien ?";
-//     ft_putstr_non_printable(test);
-// }
+int main(void)
+{
+    char test[] = "Coucou\ntu vas bien ?";
+    ft_putstr_non_printable(test);
+}
