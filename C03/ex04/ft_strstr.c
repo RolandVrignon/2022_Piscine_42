@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -51,12 +51,22 @@ char	*ft_strstr(char *str, char *to_find)
 	}
 	return ('\0');
 }
-// int main () {
-//    char haystack[] = "MarsMPaaasaadas";
-//    char needle[] = "aaassd";
-//    char *ret;
 
-//    ret = ft_strstr(haystack, needle);
-//    printf("The substring is: %s\n", ret);
-//    return(0);
+// int main () {
+//     char *haystack = "Was this the face that launch'd a thousand ships";
+//     char *needle = "face";
+//     char *location;
+
+//     location = ft_strstr(haystack,needle);
+//     if( location == NULL)
+//         perror("String not found");
+//     else
+//     {
+//         printf("String '%s' was found at position %ld in string '%s'.\n",
+//             needle,
+//             location-haystack+1,
+//             haystack);
+//     }
+
+//     return(0);
 // }
