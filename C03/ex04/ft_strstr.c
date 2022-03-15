@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 // #include <stdio.h>
+// #include <string.h>
 
 int	ft_strlen(char *str)
 {
@@ -53,20 +54,34 @@ char	*ft_strstr(char *str, char *to_find)
 }
 
 // int main () {
-//     char *haystack = "Was this the face that launch'd a thousand ships";
-//     char *needle = "face";
+//     char *haystack = "Benzema est une pute";
+//     char *needle = "pute";
 //     char *location;
 
-//     location = ft_strstr(haystack,needle);
+// 	char *haystackb = "Benzema est une pute";
+//     char *needleb = "pute";
+//     char *locationb;
+// 	location = ft_strstr(haystack,needle);
+// 	locationb = strstr(haystackb,needleb);
+
 //     if( location == NULL)
 //         perror("String not found");
 //     else
 //     {
-//         printf("String '%s' was found at position %ld in string '%s'.\n",
+//         printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
 //             needle,
 //             location-haystack+1,
 //             haystack);
 //     }
 
-//     return(0);
+// 	if( locationb == NULL)
+//         perror("String not found");
+//     else
+//     {
+//         printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
+//             needleb,
+//             locationb-haystackb+1,
+//             haystackb);
+//     }
+// 	return(0);
 // }

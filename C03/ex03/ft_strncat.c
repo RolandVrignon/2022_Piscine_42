@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 // #include <stdio.h>
+// #include <string.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
@@ -33,13 +34,16 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 // int main(void)
 // {
-//    // Take any two strings
-//    char src[50] = "efghijkl";
-//    char dest[50]= "abcd";
-//    // Appends 5 character from src to dest
-//    strncat(dest, src, 5);
-//    // Prints the string
-//    printf("Source string : %s\n", src);
-//    printf("Destination string : %s", dest);
+//    char srca[50] = "efghijkl";
+//    char desta[50]= "abcd";
+//    char srcb[50] = "efghijkl";
+//    char destb[50]= "abcd";
+
+//    ft_strncat(desta, srca, 5);
+//    strncat(destb, srcb, 5);
+//    printf("Source string : %s\n", srca);
+//    printf("Destination string : %s\n\n", desta);
+//    printf("Source string : %s\n", srcb);
+//    printf("Destination string : %s", destb);
 //    return 0;
 // }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 // #include <stdio.h>
+// #include <string.h>
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {	
@@ -34,11 +35,14 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 
 // int main(void)
 // {
-//     char s1[] = "Hello";
+//     char s1[] = "Hel";
 //     char s2[] = "Hello W";
 //     int n = 10;
 //     int r;
+// 	int b;
 
-//     r = ft_strncmp(s1, s2, n); 
-//     printf("results : %d", r);
+//     r = ft_strncmp(s1, s2, n);
+// 	b = strncmp(s1, s2, n);  
+//     printf("results A: %d\n", r);
+// 	printf("results B: %d", b);
 // }
