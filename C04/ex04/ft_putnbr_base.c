@@ -18,7 +18,7 @@ int	check_base(char *base)
 	int	j;
 
 	i = 0;
-	while (base[i] != '\0' && (base[i] >= ' ' && base[i] <= "~"))
+	while (base[i] != '\0' && (base[i] >= ' ' && base[i] <= '~'))
 	{
 		if (base[i] == '-' || base[i] == '+')
 			return (0);
@@ -43,6 +43,8 @@ void	ft_putnbr_base(int nbr, char *base)
 
 	i = check_base(base);
 	nb = nbr;
+	if (i == 0)
+		return ;
 	if (nbr < 0)
 	{
 		write(1, "-", 1);
@@ -60,9 +62,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 }
 
-int main(void)
-{
-    int nb = 255;
-    char base[] = "0123456789abcdef";   
-    ft_putnbr_base(nb, base);
-}
+// int main(void)
+// {
+//     int nb = 255;
+//     char base[] = "0123456789abcdef";   
+//     ft_putnbr_base(nb, base);
+// }

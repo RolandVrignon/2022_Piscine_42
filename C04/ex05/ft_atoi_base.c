@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:23:19 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/14 21:23:31 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/15 03:07:11 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,55 +36,63 @@ int	check_base(char *base)
 	return (i);
 }
 
-int is_in_base(char *str, char *base, int i)
+int	is_in_base(char *str, char *base, int i)
 {
-    int j;
+	int	j;
 
-    j = 0;
+	j = 0;
+	while (base[j] != '\0')
+	{
+		if (str[i] == base[j])
+			return (j);
+		j++;
+	}
+	return (-1);
+}
 
-    while (base[j] != '\0')
-    {
-        if (str[i] == base[j])
-            return (j);
-        j++;
-    }
-    return (-1);
+int	process(char *str, char *base, int i, int pos)
+{
+	int	nb;
+	int	b_l;
+	int	a;
+
+	nb = 0;
+	b_l = check_base(base);
+	if (b_l == 0)
+		return (0);
+	while (str[i] != '\0')
+	{
+		a = is_in_base(str, base, i);
+		if ((str[i] < 32 || str[i] > 126))
+			i++;
+		else if (str[i] == '-')
+			pos = pos * -1;
+		else if (a != -1)
+			nb = nb * b_l + a;
+		else if (a == -1)
+			return (0);
+		i++;
+	}
+	return (nb * pos);
 }
 
 int	ft_atoi(char *str, char *base)
 {
 	int	i;
 	int	positif;
-	int	nb;
-    int base_length;
-    int a;
+	int	atoi;
 
 	i = 0;
-	nb = 0;
 	positif = 1;
-    base_length = check_base(base);
-	while (str[i] != '\0')
-	{
-		if ((str[i] < 32 || str[i] > 126))
-            i++;
-        if (str[i] == '-')
-			positif = positif * -1;
-		else if ((a = is_in_base(str, base, i)) != -1)
-			nb = nb * base_length + a;
-        else if ((a = is_in_base(str, base, i)) == -1)
-			return (0);
-		i++;
-	}
-    nb = nb * positif;
-	return (nb);
+	atoi = process(str, base, i, positif);
+	return(atoi);
 }
 
 int	main()
 {
-	char	str[] = "10011100";
-    char    base[] = "01";
+	char	str[] = "626";
+    char    base[] = "0123456789abcdef";
 	int	a;
 	a = ft_atoi(str, base);
 	printf("resultat :%d", a);    
 }
-
