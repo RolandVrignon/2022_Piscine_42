@@ -13,75 +13,59 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strlen(char *str)
-{
-	int	n;
-
-	n = 0;
-	while (str[n] != '\0')
-	{
-		n++;
-	}
-	return (n);
-}
-
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	int	j;
-	int	k;
 	int	tofind_len;
 
-	tofind_len = ft_strlen(to_find);
+	tofind_len = 0;
 	i = 0;
+	while (tofind_len != '\0')
+		tofind_len++;
 	while (str[i] != '\0')
 	{
-		k = i;
 		j = 0;
-		if (str[k] == to_find[j])
+		while (str[i + j] == to_find[j])
 		{
-			while (str[k] == to_find[j])
-			{
-				if ((str[k] == to_find[tofind_len - 1]) && j + 1 == tofind_len)
-					return (&str[i]);
-				k++;
-				j++;
-			}
+			if (to_find[j + 1] == '\0')
+				return (&str[i]);
+			j++;
 		}
 		i++;
 	}
 	return ('\0');
 }
 
-int main () {
-    char *haystack = "Benzema est une pute";
-    char *needle = "pute";
-    char *location;
+// int main () {
+//     char *haystack = "des de";
+//     char *needle = "de";
+//     char *location;
 
-	char *haystackb = "Benzema est une pute";
-    char *needleb = "pute";
-    char *locationb;
-	location = ft_strstr(haystack,needle);
-	locationb = strstr(haystackb,needleb);
+// 	char *haystackb = "des de";
+//     char *needleb = "de";
+//     char *locationb;
+// 	location = ft_strstr(haystack,needle);
+// 	locationb = strstr(haystackb,needleb);
 
-    if( location == NULL)
-        perror("String not found");
-    else
-    {
-        printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
-            needle,
-            location-haystack+1,
-            haystack);
-    }
+//     if( location == NULL)
+//         printf("String not found\n");
+//     else
+//     {
+//         printf("Le mot '%s' est a la position %ld dans la phrase '%s'.\n",
+//             needle,
+//             location-haystack+1,
+//             haystack);
+//     }
 
-	if( locationb == NULL)
-        perror("String not found");
-    else
-    {
-        printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
-            needleb,
-            locationb-haystackb+1,
-            haystackb);
-    }
-	return(0);
-}
+// 	if( locationb == NULL)
+//         printf("String not found");
+//     else
+//     {
+//         printf("Le mot '%s' est a la position %ld dans la phrase '%s'.\n",
+//             needleb,
+//             locationb-haystackb+1,
+//             haystackb);
+//     }
+// 	return(0);
+// }
