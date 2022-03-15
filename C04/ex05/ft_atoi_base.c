@@ -85,14 +85,14 @@ int	ft_atoi(char *str, char *base)
 	i = 0;
 	positif = 1;
 	atoi = process(str, base, i, positif);
-	return(atoi);
+	return (atoi);
 }
 
-int	main()
-{
-	char	str[] = "626";
-    char    base[] = "0123456789abcdef";
-	int	a;
-	a = ft_atoi(str, base);
-	printf("resultat :%d", a);    
-}
+// int	main()
+// {
+// 	char	str[] = "626";
+//     char    base[] = "0123456789abcdef";
+// 	int	a;
+// 	a = ft_atoi(str, base);
+// 	printf("resultat :%d", a);    
+// }
