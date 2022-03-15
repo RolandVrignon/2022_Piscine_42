@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
@@ -38,7 +38,6 @@ int	ft_atoi(char *str)
 // {
 // 	char	str[] = "---+----12334dfg45";
 // 	int	a;
-
 // 	a = ft_atoi(str);
 // 	printf("resultat :%d", a);    
 // }
