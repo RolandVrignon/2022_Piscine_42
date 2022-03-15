@@ -18,7 +18,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
-	while (i < n && src[i])
+	while (i < n && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
@@ -34,7 +34,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 // int	main(void)
 // {
 //     char source[] = "My text will be copied";
-//     char destination[] = "123456789012345678901234567890";
+//     char destination[] = "123456789";
 // 	int a = 10;
 
 // 	ft_strncpy(destination, source, a);

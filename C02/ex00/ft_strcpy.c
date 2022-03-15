@@ -31,5 +31,5 @@ char	*ft_strcpy(char *dest, char *src)
 // 	char dest[] = "Roland";
 // 	char src[] = "Roland";
 
-// 	*ft_strcpy(dest, src);
+// 	ft_strcpy(dest, src);
 // }
