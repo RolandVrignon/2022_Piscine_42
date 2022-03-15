@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 // #include <stdio.h>
+
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	i;
@@ -20,7 +21,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	j = 0;
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0' && j <= nb)
+	while (src[j] != '\0' && j < nb)
 	{
 		dest[i] = src[j];
 		i++;
@@ -29,13 +30,16 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	dest[i] = '\0';
 	return (dest);
 }
+
 // int main(void)
 // {
-//     char dest[] = "Roland ";
-//     char src[] = "Vrignon";
-//     unsigned int n = 2;
-//     char * r;
-
-//     r = ft_strncat(dest, src, n); 
-//     printf("results : %s", r);
+//    // Take any two strings
+//    char src[50] = "efghijkl";
+//    char dest[50]= "abcd";
+//    // Appends 5 character from src to dest
+//    strncat(dest, src, 5);
+//    // Prints the string
+//    printf("Source string : %s\n", src);
+//    printf("Destination string : %s", dest);
+//    return 0;
 // }

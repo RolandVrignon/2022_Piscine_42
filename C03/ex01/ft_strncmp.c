@@ -14,25 +14,28 @@
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {	
-	unsigned char	u1;
-	unsigned char	u2;	
+	unsigned int	i;
 
-	while (n-- > 0)
+	i = 0;
+	while (s1[i] == s2[i] && i < n)
 	{
-		u1 = (unsigned char) *s1++;
-		u2 = (unsigned char) *s2++;
-		if (u1 != u2)
-			return (u1 - u2);
-		if (u1 == '\0')
+		if (s2[i] == '\0' && s1[i] != '\0')
+			return (100);
+		else if (s1[i] == '\0' && s2[i] != '\0' )
+			return (-100);
+		else if (s1[i] == '\0' && s2[i] == '\0')
 			return (0);
+		i++;
 	}
+	if (s1[i] != s2[i])
+		return (s1[i] - s2[i]);
 	return (0);
 }
 
 // int main(void)
 // {
-//     char s1[] = "Hello Warld";
-//     char s2[] = "Hello World";
+//     char s1[] = "Hello";
+//     char s2[] = "Hello W";
 //     int n = 10;
 //     int r;
 
