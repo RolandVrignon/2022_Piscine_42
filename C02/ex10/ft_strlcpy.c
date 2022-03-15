@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 // #include <unistd.h>
 
 unsigned int	str_len(char *str)
