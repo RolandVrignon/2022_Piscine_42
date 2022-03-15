@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// #include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 int	ft_strlen(char *str)
 {
@@ -53,35 +53,35 @@ char	*ft_strstr(char *str, char *to_find)
 	return ('\0');
 }
 
-// int main () {
-//     char *haystack = "Benzema est une pute";
-//     char *needle = "pute";
-//     char *location;
+int main () {
+    char *haystack = "Benzema est une pute";
+    char *needle = "pute";
+    char *location;
 
-// 	char *haystackb = "Benzema est une pute";
-//     char *needleb = "pute";
-//     char *locationb;
-// 	location = ft_strstr(haystack,needle);
-// 	locationb = strstr(haystackb,needleb);
+	char *haystackb = "Benzema est une pute";
+    char *needleb = "pute";
+    char *locationb;
+	location = ft_strstr(haystack,needle);
+	locationb = strstr(haystackb,needleb);
 
-//     if( location == NULL)
-//         perror("String not found");
-//     else
-//     {
-//         printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
-//             needle,
-//             location-haystack+1,
-//             haystack);
-//     }
+    if( location == NULL)
+        perror("String not found");
+    else
+    {
+        printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
+            needle,
+            location-haystack+1,
+            haystack);
+    }
 
-// 	if( locationb == NULL)
-//         perror("String not found");
-//     else
-//     {
-//         printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
-//             needleb,
-//             locationb-haystackb+1,
-//             haystackb);
-//     }
-// 	return(0);
-// }
+	if( locationb == NULL)
+        perror("String not found");
+    else
+    {
+        printf("Le mot '%s' a la position %ld dans la phrase '%s'.\n",
+            needleb,
+            locationb-haystackb+1,
+            haystackb);
+    }
+	return(0);
+}

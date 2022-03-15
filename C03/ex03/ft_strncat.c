@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// #include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
@@ -32,18 +32,18 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	return (dest);
 }
 
-// int main(void)
-// {
-//    char srca[50] = "efghijkl";
-//    char desta[50]= "abcd";
-//    char srcb[50] = "efghijkl";
-//    char destb[50]= "abcd";
+int main(void)
+{
+   char srca[50] = "efghijkl";
+   char desta[50]= "abcd";
+   char srcb[50] = "efghijkl";
+   char destb[50]= "abcd";
 
-//    ft_strncat(desta, srca, 5);
-//    strncat(destb, srcb, 5);
-//    printf("Source string : %s\n", srca);
-//    printf("Destination string : %s\n\n", desta);
-//    printf("Source string : %s\n", srcb);
-//    printf("Destination string : %s", destb);
-//    return 0;
-// }
+   ft_strncat(desta, srca, 2);
+   strncat(destb, srcb, 2);
+   printf("Source string : %s\n", srca);
+   printf("Destination string : %s\n\n", desta);
+   printf("Source string : %s\n", srcb);
+   printf("Destination string : %s", destb);
+   return 0;
+}
