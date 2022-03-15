@@ -42,7 +42,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	}
 	else if (size != 0)
 	{
-		while (i <= size - 1)
+		while (i < size - 1)
 		{
 			dest[i] = src[i];
 			i++;
