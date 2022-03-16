@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {	
@@ -27,16 +27,16 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	return (0);
 }
 
-int main(void)
-{
-    char s1[] = "Hel";
-    char s2[] = "Hellllllpllll";
-    int n = 196;
-    int r;
-	int b;
+// int main(void)
+// {
+//     char s1[] = "Hel";
+//     char s2[] = "Hellllllpllll";
+//     int n = 196;
+//     int r;
+// 	int b;
 
-    r = ft_strncmp(s1, s2, n);
-	b = strncmp(s1, s2, n);  
-    printf("results A: %d\n", r);
-	printf("results B: %d", b);
-}
+//     r = ft_strncmp(s1, s2, n);
+// 	b = strncmp(s1, s2, n);  
+//     printf("results A: %d\n", r);
+// 	printf("results B: %d", b);
+// }
