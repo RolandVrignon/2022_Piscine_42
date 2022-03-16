@@ -1,48 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 21:22:53 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/14 21:22:55 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/16 15:41:35 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/16 15:41:38 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <limits.h>
 
-void	ft_putchar(char c)
+int main( int argc, char **argv)
 {
-	write(1, &c, 1);
+    (void) argc;
+    (void) argv;
+    while (*argv[0])
+    {
+        write(1, argv[0], 1);
+        argv[0]++;
+    }
+    return (0);
 }
-
-void	ft_putnbr(int nb)
-{
-	if (nb == INT_MIN)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(nb * -1);
-		return ;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		ft_putchar(nb + '0');
-	}
-}
-
-// void main()
-// {
-// 	ft_putnbr(-2147483648);
-// }
