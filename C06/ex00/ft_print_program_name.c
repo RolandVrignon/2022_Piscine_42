@@ -6,20 +6,20 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:41:35 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/16 15:41:38 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/16 23:17:41 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main( int argc, char **argv)
+int	main( int argc, char **argv)
 {
-    (void) argc;
-    (void) argv;
-    while (*argv[0])
-    {
-        write(1, argv[0], 1);
-        argv[0]++;
-    }
-    return (0);
+	(void) argc;
+	(void) argv;
+	while (*argv[0])
+	{
+		write(1, argv[0], 1);
+		argv[0]++;
+	}
+	return (0);
 }

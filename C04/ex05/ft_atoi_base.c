@@ -93,6 +93,6 @@ int	ft_atoi_base(char *str, char *base)
 // 	char	str[] = "626";
 //     char    base[] = "0123456789abcdef";
 // 	int	a;
-// 	a = ft_atoi(str, base);
+// 	a = ft_atoi_base(str, base);
 // 	printf("resultat :%d", a);    
 // }

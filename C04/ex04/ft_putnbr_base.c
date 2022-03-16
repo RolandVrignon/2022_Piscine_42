@@ -45,20 +45,20 @@ void	ft_putnbr_base(int nbr, char *base)
 	nb = nbr;
 	if (i == 0)
 		return ;
-	if (nbr < 0)
+	if (nb < 0)
 	{
 		write(1, "-", 1);
-		ft_putnbr_base(nbr * -1, base);
+		ft_putnbr_base(nb * -1, base);
 		return ;
 	}
 	else if (nbr > i)
 	{
-		ft_putnbr_base(nbr / i, base);
-		ft_putnbr_base(nbr % i, base);
+		ft_putnbr_base(nb / i, base);
+		ft_putnbr_base(nb % i, base);
 	}
 	else
 	{
-		write(1, &base[nbr], 1);
+		write(1, &base[nb], 1);
 	}
 }
 

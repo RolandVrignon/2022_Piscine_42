@@ -31,7 +31,7 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	if (nb > INT_MAX)
+	if (nb < 2 || nb > INT_MAX)
 		return (0);
 	else if (ft_is_prime(nb) == 1)
 		return (nb);
@@ -49,5 +49,5 @@ int	ft_find_next_prime(int nb)
 
 // int main ()
 // {
-//     printf("Resultat : %d", ft_find_next_prime(2854));
+//     printf("Resultat : %d", ft_find_next_prime(61));
 // }
