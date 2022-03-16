@@ -17,16 +17,14 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	int	j;
-	int	tofind_len;
 
-	tofind_len = 0;
 	i = 0;
-	while (tofind_len != '\0')
-		tofind_len++;
+	if (to_find[0] == '\0')
+		return (str);
 	while (str[i] != '\0')
 	{
 		j = 0;
-		while (str[i + j] == to_find[j])
+		while (str[i + j] == to_find[j] && str[i + j] != '\0')
 		{
 			if (to_find[j + 1] == '\0')
 				return (&str[i]);
@@ -34,16 +32,16 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		i++;
 	}
-	return ('\0');
+	return (0);
 }
 
 // int main () {
-//     char *haystack = "des de";
-//     char *needle = "de";
+//     char *haystack = "des de";;
+//     char *needle = " de";
 //     char *location;
 
 // 	char *haystackb = "des de";
-//     char *needleb = "de";
+//     char *needleb = " de";
 //     char *locationb;
 // 	location = ft_strstr(haystack,needle);
 // 	locationb = strstr(haystackb,needleb);

@@ -28,38 +28,36 @@ int	ft_strlen(char *str)
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
+	unsigned int	j;
 	unsigned int	d_len;
-	unsigned int	d_len_cp;
 
 	i = 0;
 	d_len = ft_strlen(dest);
-	d_len_cp = d_len;
+	j = d_len;
 	if (d_len >= size)
 		return (size + ft_strlen(src));
 	else
 	{
-		while (d_len < size - 1 && src[i] != '\0')
+		while (j < size - 1 && src[i] != '\0')
 		{
-			dest[d_len] = src[i];
+			dest[j] = src[i];
 			i++;
-			d_len++;
+			j++;
 		}
-		dest[d_len] = '\0';
-		return (ft_strlen(src) + d_len_cp);
+		dest[j] = '\0';
+		return (ft_strlen(src) + d_len);
 	}
 }
 
 // int main(void)
 // {
-// 	char first[] = "This is ";
-// 	char last[] = "a potentially long string";
-// 	int size = 30;
-// 	char buffer[size];
+// 	int size = 64;
+// 	char dest[64] = "This is ";
+// 	char src[] = "a potentially long string";
 // 	int r;
 
-// 	strcpy(buffer, first);
-// 	r = ft_strlcat(buffer,last,size);
-// 	puts(buffer);
+// 	r = ft_strlcat(dest,src,size);
+// 	printf ("%s\n", dest);
 // 	printf("Value returned: %d\n",r);
 // 	if( r > size )
 // 		puts("String truncated");
