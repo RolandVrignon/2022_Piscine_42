@@ -76,7 +76,7 @@ int	process(char *str, char *base, int i, int pos)
 	return (nb * pos);
 }
 
-int	ft_atoi(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
 	int	i;
 	int	positif;
