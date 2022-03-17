@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:23:02 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/14 22:06:43 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:17:58 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_atoi(char *str)
 	i = 0;
 	nb = 0;
 	positif = 1;
-	
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	while (str[i] == '-' || str[i] == '+')
@@ -38,10 +37,10 @@ int	ft_atoi(char *str)
 	return (nb * positif);
 }
 
-int	main()
-{
-	char	str[] = " ---+--+1234ab567";
-	int	a;
-	a = ft_atoi(str);
-	printf("resultat :%d", a);    
-}
+// int	main()
+// {
+// 	char	str[] = " ---+--+1234ab567";
+// 	int	a;
+// 	a = ft_atoi(str);
+// 	printf("resultat :%d", a);    
+// }

@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:09:37 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/17 04:13:09 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:19:28 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putstr(char *str)
 
 void	ft_swap(char **s1, char **s2)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = *s2;
 	*s2 = *s1;

@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:23:09 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/14 23:01:24 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:18:22 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_base(char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int			i;
-	long	nb;
+	long		nb;
 
 	i = check_base(base);
 	nb = nbr;
