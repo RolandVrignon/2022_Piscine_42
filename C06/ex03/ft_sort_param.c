@@ -1,34 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_sort_param.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 17:43:24 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/16 23:17:03 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/17 04:09:37 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/17 04:13:09 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-int	main( int argc, char **argv)
+void	ft_sort(int ac, char **av)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	*tmp;
 
-	(void) argc;
-	(void) argv;
 	i = 1;
-	while (i < argc)
+	while (i < ac)
 	{
-		while (*argv[i])
+		j = i + 1;
+		while (j < ac)
 		{
-			write(1, argv[i], 1);
-			argv[i]++;
+			if (av[i][0] > av[j][0])
+			{
+				tmp = av[j];
+				av[j] = av[i];
+				av[i] = tmp;
+			}
+			j++;
 		}
-		write(1, "\n", 1);
-		i++;
+	i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int	l;
+
+	l = 1;
+	ft_sort(argc, argv);
+	while (l < argc)
+	{
+		while (*argv[l])
+		{
+			write (1, argv[l], 1);
+			argv[l]++;
+		}
+		write (1, "\n", 1);
+		l++;
 	}
 	return (0);
 }

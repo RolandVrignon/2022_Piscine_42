@@ -88,11 +88,11 @@ int	ft_atoi_base(char *str, char *base)
 	return (atoi);
 }
 
-// int	main()
-// {
-// 	char	str[] = "626";
-//     char    base[] = "0123456789abcdef";
-// 	int	a;
-// 	a = ft_atoi_base(str, base);
-// 	printf("resultat :%d", a);    
-// }
+int	main()
+{
+	char	str[] = "fivyonep";
+    char    base[] = "poneyvif";
+	int	a;
+	a = ft_atoi_base(str, base);
+	printf("resultat :%d", a);    
+}
