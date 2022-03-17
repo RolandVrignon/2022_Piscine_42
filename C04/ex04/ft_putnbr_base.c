@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <limits.h>
 
 int	check_base(char *base)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	while (base[i] != '\0' && (base[i] >= ' ' && base[i] <= '~'))
+	while (base[i] != '\0')
 	{
 		if (base[i] == '-' || base[i] == '+')
 			return (0);
@@ -40,13 +39,11 @@ int	check_base(char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int			i;
-	long long	nb;
+	long	nb;
 
 	i = check_base(base);
 	nb = nbr;
 	if (i == 0)
-		return ;
-	if (nb / i >= INT_MAX || nb / i <= INT_MIN)
 		return ;
 	if (nb < 0)
 	{
@@ -55,8 +52,8 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	if (nb > i)
 	{
-		ft_putnbr_base(nb / i, base);
-		ft_putnbr_base(nb % i, base);
+		ft_putnbr_base((nb / i), base);
+		ft_putnbr_base((nb % i), base);
 	}
 	else
 	{
