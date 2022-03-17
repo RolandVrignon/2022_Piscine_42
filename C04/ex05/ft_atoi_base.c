@@ -60,7 +60,7 @@ int	process(char *str, char *base, int i, int pos)
 	b_l = check_base(base);
 	if (b_l == 0)
 		return (0);
-	while (str[i] < 33 || str[i] > 126)
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
