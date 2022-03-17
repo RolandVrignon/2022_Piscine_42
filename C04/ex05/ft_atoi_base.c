@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 
 int	check_base(char *base)
 {
@@ -54,24 +54,26 @@ int	process(char *str, char *base, int i, int pos)
 {
 	int	nb;
 	int	b_l;
-	int	a;
 
 	nb = 0;
 	b_l = check_base(base);
 	if (b_l == 0)
 		return (0);
+	while (str[i] < 32 || str[i] > 126 || str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			pos = pos * -1;
+		i++;
+	}
 	while (str[i] != '\0')
 	{
-		a = is_in_base(str, base, i);
-		if ((str[i] < 32 || str[i] > 126))
+		if (is_in_base(str, base, i) != -1)
+		{
+			nb = nb * b_l + is_in_base(str, base, i);
 			i++;
-		else if (str[i] == '-')
-			pos = pos * -1;
-		else if (a != -1)
-			nb = nb * b_l + a;
-		else if (a == -1)
-			return (0);
-		i++;
+		}
+		else
+			break ;
 	}
 	return (nb * pos);
 }
@@ -88,11 +90,11 @@ int	ft_atoi_base(char *str, char *base)
 	return (atoi);
 }
 
-int	main()
-{
-	char	str[] = "fivyonep";
-    char    base[] = "poneyvif";
-	int	a;
-	a = ft_atoi_base(str, base);
-	printf("resultat :%d", a);    
-}
+// int	main()
+// {
+// 	char	str[] = "\n\n\n---+--+-1011010";
+//     char    base[] = "01";
+// 	int	a;
+// 	a = ft_atoi_base(str, base);
+// 	printf("resultat :%d", a);    
+// }

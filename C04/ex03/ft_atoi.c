@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 
 int	ft_atoi(char *str)
 {
 	int	i;
 	int	positif;
 	int	nb;
-	int j;
 
 	i = 0;
 	nb = 0;
@@ -26,22 +25,20 @@ int	ft_atoi(char *str)
 	{
 		if (str[i] == '-')
 			positif = positif * -1;
-		else if (str[i] >= '0' && str[i] <= '9')
-			j = 0;
-			while (!(str[j] >= '0' && str[j] <= '9'))
-				{
-					nb = nb * 10 + (str[i] - '0');
-					j++;
-				}
-			return (nb * positif);
 		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb * positif);
 }
 
-int	main()
-{
-	char	str[] = "---+-7---894dfg45";
-	int	a;
-	a = ft_atoi(str);
-	printf("resultat :%d", a);    
-}
+// int	main()
+// {
+// 	char	str[] = "--\n-+--789h---894dfg45";
+// 	int	a;
+// 	a = ft_atoi(str);
+// 	printf("resultat :%d", a);    
+// }

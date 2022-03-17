@@ -48,10 +48,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (nb < 0)
 	{
 		write(1, "-", 1);
-		ft_putnbr_base(nb * -1, base);
-		return ;
+		nb = nb * -1;
 	}
-	else if (nb > i)
+	if (nb > i)
 	{
 		ft_putnbr_base(nb / i, base);
 		ft_putnbr_base(nb % i, base);
@@ -62,9 +61,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 }
 
-int main(void)
-{
-    int nb = 58527257;
-    char base[] = "poneyvif";   
-    ft_putnbr_base(nb, base);
-}
+// int main(void)
+// {
+//     int nb = -2147483648;
+//     char base[] = "0123465789abcdef";   
+//     ft_putnbr_base(nb, base);
+// }
