@@ -10,47 +10,70 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
-void	ft_sort(int ac, char **av)
+void	ft_putchar(char c)
 {
-	int		i;
-	int		j;
-	char	*tmp;
+	write(1, &c, 1);
+}
 
-	i = 1;
-	while (i < ac)
+void	ft_putstr(char *str)
+{
+	while (*str)
 	{
-		j = i + 1;
-		while (j < ac)
-		{
-			if (av[i][0] > av[j][0])
-			{
-				tmp = av[j];
-				av[j] = av[i];
-				av[i] = tmp;
-			}
-			j++;
-		}
-	i++;
+		ft_putchar(*str);
+		str++;
 	}
 }
 
-int	main(int argc, char **argv)
+void	ft_swap(char **s1, char **s2)
 {
-	int	l;
+	char *tmp;
 
-	l = 1;
-	ft_sort(argc, argv);
-	while (l < argc)
+	tmp = *s2;
+	*s2 = *s1;
+	*s1 = tmp;
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i])
 	{
-		while (*argv[l])
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (s1[i] - s2[i]);
+	}
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (av[i] && ac > 1)
+	{
+		j = i + 1;
+		while (av[j])
 		{
-			write (1, argv[l], 1);
-			argv[l]++;
+			if (ft_strcmp(av[i], av[j]) > 0)
+				ft_swap(&av[i], &av[j]);
+			j++;
 		}
-		write (1, "\n", 1);
-		l++;
+		i++;
+	}
+	i = 1;
+	while (av[i])
+	{
+		ft_putstr(av[i]);
+		ft_putchar('\n');
+		i++;
 	}
 	return (0);
 }

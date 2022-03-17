@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <limits.h>
 
 int	check_base(char *base)
 {
@@ -38,12 +39,14 @@ int	check_base(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int		i;
-	long	nb;
+	int			i;
+	long long	nb;
 
 	i = check_base(base);
 	nb = nbr;
 	if (i == 0)
+		return ;
+	if (nb / i >= INT_MAX || nb / i <= INT_MIN)
 		return ;
 	if (nb < 0)
 	{
