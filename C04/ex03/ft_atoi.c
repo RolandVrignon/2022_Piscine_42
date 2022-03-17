@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
+#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
@@ -21,7 +21,10 @@ int	ft_atoi(char *str)
 	i = 0;
 	nb = 0;
 	positif = 1;
-	while (str[i] < 32 || str[i] > 126 || str[i] == '-' || str[i] == '+')
+	
+	while (str[i] < 33 || str[i] > 126 )
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			positif = positif * -1;
@@ -35,10 +38,10 @@ int	ft_atoi(char *str)
 	return (nb * positif);
 }
 
-// int	main()
-// {
-// 	char	str[] = "--\n-+--789h---894dfg45";
-// 	int	a;
-// 	a = ft_atoi(str);
-// 	printf("resultat :%d", a);    
-// }
+int	main()
+{
+	char	str[] = " ---+--+1234ab567";
+	int	a;
+	a = ft_atoi(str);
+	printf("resultat :%d", a);    
+}

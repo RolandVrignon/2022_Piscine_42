@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 // #include <stdio.h>
+// #include <unistd.h>
 
 int	check_base(char *base)
 {
@@ -59,7 +60,9 @@ int	process(char *str, char *base, int i, int pos)
 	b_l = check_base(base);
 	if (b_l == 0)
 		return (0);
-	while (str[i] < 32 || str[i] > 126 || str[i] == '-' || str[i] == '+')
+	while (str[i] < 33 || str[i] > 126)
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			pos = pos * -1;
@@ -68,12 +71,10 @@ int	process(char *str, char *base, int i, int pos)
 	while (str[i] != '\0')
 	{
 		if (is_in_base(str, base, i) != -1)
-		{
 			nb = nb * b_l + is_in_base(str, base, i);
-			i++;
-		}
 		else
 			break ;
+		i++;
 	}
 	return (nb * pos);
 }
@@ -92,8 +93,8 @@ int	ft_atoi_base(char *str, char *base)
 
 // int	main()
 // {
-// 	char	str[] = "\n\n\n---+--+-1011010";
-//     char    base[] = "01";
+// 	char	str[] = "   ---+-+- -7FFFFFFF+5354";
+//     char    base[] = "0123456789ABCDEF";
 // 	int	a;
 // 	a = ft_atoi_base(str, base);
 // 	printf("resultat :%d", a);    
