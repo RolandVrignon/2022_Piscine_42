@@ -142,71 +142,71 @@ void        ft_print_tab(int **tab, int size)
 }
 
 // Tab solve
-int         check_double(int **tab, int r, int c, int nbr)
-{
-    int i;
-    int go;
+// int         check_double(int **tab, int r, int c, int nbr)
+// {
+//     int i;
+//     int go;
 
-    i = 0;
-    go = 0;
-    while ( i < size - 1)
-    {
-        if(tab[i][c] == tab[r][c] && r != i)
-            return (0);
-        i++
-    }
-    go = go + 1;
-    i = 0;
-    while ( i < size - 1)
-    {
-        if(tab[r][i] == tab[r][c] && c != i)
-            return (0);
-        i++
-    }
-    go = go + 1;
-    if (go == 2)
-        return (1);
-    return (0);
-}
+//     i = 0;
+//     go = 0;
+//     while ( i < size - 1)
+//     {
+//         if(tab[i][c] == tab[r][c] && r != i)
+//             return (0);
+//         i++;
+//     }
+//     go = go + 1;
+//     i = 0;
+//     while ( i < size - 1)
+//     {
+//         if(tab[r][i] == tab[r][c] && c != i)
+//             return (0);
+//         i++
+//     }
+//     go = go + 1;
+//     if (go == 2)
+//         return (1);
+//     return (0);
+// }
 
-int         check_boundary_condition(int **tab, )
+// int         check_boundary_condition(int **tab, )
 
-void        solve_tab(int **tab, int r, int c, int size)
-{
-    int i;
-    int next_r;
-    int next_c;
+// void        solve_tab(int **tab, int r, int c, int size)
+// {
+//     int i;
+//     int next_r;
+//     int next_c;
     
-    i = -1;
-    if (tab[r][c] == 0)
-    {
-        while( i++ < size - 1)
-        {
-            tab[r][c] = i;
-            if (check_double(tab, r, c, size) && check_boundary_condition(tab, condition))
-            {
-                if(is_complete(tab))
-                    ft_print(tab, size);
-                else
-                {
-                    (next_r, next_c) = next(r, c);
-                    solve_tab(tab, next_r, next_c, size);
-                }
-            } 
-        }
-    }
-    else
-    {
-        if(is_complete(tab))
-            ft_print(tab, size);
-        else
-        {
-            (next_r, next_c) = next(r, c);
-            solve_tab(tab, next_r, next_c, size);
-        }
-    }
+//     i = -1;
+//     if (tab[r][c] == 0)
+//     {
+//         while( i++ < size - 1)
+//         {
+//             tab[r][c] = i;
+//             if (check_double(tab, r, c, size) && check_boundary_condition(tab, condition))
+//             {
+//                 if(is_complete(tab))
+//                     ft_print(tab, size);
+//                 else
+//                 {
+//                     (next_r, next_c) = next(r, c);
+//                     solve_tab(tab, next_r, next_c, size);
+//                 }
+//             } 
+//         }
+//     }
+//     else
+//     {
+//         if(is_complete(tab))
+//             ft_print(tab, size);
+//         else
+//         {
+//             (next_r, next_c) = next(r, c);
+//             solve_tab(tab, next_r, next_c, size);
+//         }
+//     }
 
-}
+// }
 
 // Main
 
