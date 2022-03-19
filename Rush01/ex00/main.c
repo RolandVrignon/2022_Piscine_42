@@ -139,6 +139,7 @@ void ft_print_tab(int **tab, int size)
         ft_putnbr(tab[i][j]);
         write(1, "\n", 1);
     }
+    write(1, "\n", 1);
 }
 
 // Checkk boundaries
@@ -250,7 +251,7 @@ int is_complete(int **tab, int size)
     while (i++ < size - 1)
     {
         j = -1;
-        while (j++ < size - 2)
+        while (j++ < size - 1)
         {
             if (tab[i][j] == 0)
                 return (0);
@@ -294,7 +295,7 @@ int check_boundary_condition(int **tab, int **conditions)
     int i;
     int j;
 
-    size = sizeof(tab[0]) / sizeof(tab[0][0]);
+    size = (sizeof(tab[0]) / sizeof(tab[0][0])) * 2;
     i = -1;
     while (i++ < size - 1)
     {
@@ -308,37 +309,60 @@ int check_boundary_condition(int **tab, int **conditions)
     return (0);
 }
 
-int next(int r, int c, int size)
+int *ft_next(int r, int c, int size)
 {
+    int *tab;
+
+    tab = malloc(sizeof(int) * 5);
+
     if (c < size - 1)
-        return (r, c + 1);
+    {
+        tab[0] = r;
+        tab[1] = c + 1;
+        return (tab);
+    }
     else if (c == size - 1 && r != size - 1)
-        return (r + 1, c);
+    {
+        tab[0] = r + 1;
+        tab[1] = 0;
+        return (tab);
+    }
     else
-        return (0, 0);
+    {
+        tab[0] = 0;
+        tab[1] = 0;
+        return (tab);
+    }
 }
 
 void solve_tab(int **tab, int r, int c, int **conditions)
 {
     int i;
+    int * next;
     int next_r;
     int next_c;
     int size;
 
-    size = sizeof(tab[r]) / sizeof(tab[r][0]);
-    i = -1;
+    size = (sizeof(tab[r]) / sizeof(tab[r][0])) * 2;
+
+    i = 0;
     if (tab[r][c] == 0)
     {
-        while (i++ < size - 1)
+        while (i++ < size)
         {
             tab[r][c] = i;
-            if (check_double(tab, r, c, size) && check_boundary_condition(tab, conditions))
+            if (check_double(tab, r, c, size))
             {
                 if (is_complete(tab, size))
+                {
                     ft_print_tab(tab, size);
+                    return ;
+                }
                 else
                 {
-                    (next_r, next_c) = next(r, c, size);
+                    next = ft_next(r, c, size);
+                    next_r = next[0];
+                    next_c = next[1];
                     solve_tab(tab, next_r, next_c, conditions);
                 }
             }
@@ -347,10 +371,15 @@ void solve_tab(int **tab, int r, int c, int **conditions)
     else
     {
         if (is_complete(tab, size))
+        {
             ft_print_tab(tab, size);
+            return ;
+        }
         else
         {
-            (next_r, next_c) = next(r, c, size);
+            next = ft_next(r, c, size);
+            next_r = next[0];
+            next_c = next[1];
             solve_tab(tab, next_r, next_c, conditions);
         }
     }
