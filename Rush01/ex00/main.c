@@ -150,6 +150,8 @@ int check_top(int **tab, int **conditions, int c, int size)
     int i;
 
     i = 0;
+
+    printf("C = %d\n", c);
     if (conditions[0][c] == size)
     {
         while (size - 1 > 0)
@@ -190,6 +192,7 @@ int check_bottom(int **tab, int **conditions, int c, int size)
         if (tab[0][c] != (size || 0))
             return (0);
     }
+    printf("Bottom OK\n");
     return (1);
 }
 
@@ -197,7 +200,6 @@ int check_left(int **tab, int **conditions, int r, int size)
 {
     int nb = conditions[2][r];
     int i;
-
     i = 0;
     if (conditions[2][r] == size)
     {
@@ -213,6 +215,7 @@ int check_left(int **tab, int **conditions, int r, int size)
         if (tab[2][r] != (size || 0))
             return (0);
     }
+    printf("Left OK\n");
     return (1);
 }
 
@@ -239,6 +242,7 @@ int check_right(int **tab, int **conditions, int r, int size)
         if (tab[0][r] != (size || 0))
             return (0);
     }
+    printf("Right OK\n");
     return (1);
 }
 
@@ -289,24 +293,15 @@ int check_double(int **tab, int r, int c, int size)
     return (0);
 }
 
-int check_boundary_condition(int **tab, int **conditions)
+int check_boundary_condition(int **tab, int **conditions, int i, int j)
 {
     int size;
-    int i;
-    int j;
 
-    size = (sizeof(tab[0]) / sizeof(tab[0][0])) * 2;
-    i = -1;
-    while (i++ < size - 1)
-    {
-        j = -1;
-        while (j++ < size - 2)
-        {
-            if (tab[i][j] != 0 && check_top(tab, conditions, j, size) && check_bottom(tab, conditions, j, size) && check_left(tab, conditions, i, size) && check_right(tab, conditions, i, size))
-                return (1);
-        }
-    }
-    return (0);
+
+    if (tab[i][j] == 0 || !check_top(tab, conditions, j, size) || !check_bottom(tab, conditions, j, size) ||
+        !check_left(tab, conditions, i, size) || !check_right(tab, conditions, i, size))
+            return (0);
+    return (1);
 }
 
 int *ft_next(int r, int c, int size)
@@ -314,6 +309,7 @@ int *ft_next(int r, int c, int size)
     int *tab;
 
     tab = malloc(sizeof(int) * 5);
+
 
     if (c < size - 1)
     {
@@ -345,42 +341,29 @@ void solve_tab(int **tab, int r, int c, int **conditions)
 
     size = (sizeof(tab[r]) / sizeof(tab[r][0])) * 2;
 
-    i = 0;
-    if (tab[r][c] == 0)
+    if (tab[r][c] != 0)
     {
-        while (i++ < size)
-        {
-            tab[r][c] = i;
-            if (check_double(tab, r, c, size))
-            {
-                if (is_complete(tab, size))
-                {
-                    ft_print_tab(tab, size);
-                    return ;
-                }
-                else
-                {
-                    next = ft_next(r, c, size);
-                    next_r = next[0];
-                    next_c = next[1];
-                    solve_tab(tab, next_r, next_c, conditions);
-                }
-            }
-        }
+        next = ft_next(r, c, size);
+        next_r = next[0];
+        next_c = next[1];
+        solve_tab(tab, next_r, next_c, conditions);
     }
-    else
+    else 
     {
-        if (is_complete(tab, size))
-        {
-            ft_print_tab(tab, size);
-            return ;
-        }
-        else
-        {
-            next = ft_next(r, c, size);
-            next_r = next[0];
-            next_c = next[1];
-            solve_tab(tab, next_r, next_c, conditions);
+        i = 0;
+        while (i++ < size - 1)
+        {           
+            tab[r][c] = i;
+            if (check_double(tab,r,c, size))
+            {
+                next = ft_next(r, c, size);
+                next_r = next[0];
+                next_c = next[1];
+                printf("R = %d || C = %d\n", next[0], next[1]);
+                solve_tab(tab, next_r, next_c, conditions);
+            }
+            else
+                tab[r][c] = 0;
         }
     }
 }
@@ -403,5 +386,6 @@ int main()
     conditions = ft_conditions(consign, size);
 
     solve_tab(tab, 0, 0, conditions);
+    ft_print_tab(tab, size);
     return (0);
 }
