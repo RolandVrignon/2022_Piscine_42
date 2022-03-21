@@ -39,7 +39,7 @@ int	ft_atoi(char *str)
 
 // int	main()
 // {
-// 	char	str[] = " ---+--+1234ab567";
+// 	char	str[] = " ---+- -+1234ab567";
 // 	int	a;
 // 	a = ft_atoi(str);
 // 	printf("resultat :%d", a);    

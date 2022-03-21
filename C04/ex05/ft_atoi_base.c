@@ -21,7 +21,7 @@ int	check_base(char *base)
 	i = 0;
 	while (base[i] != '\0')
 	{
-		if (base[i] == '-' || base[i] == '+')
+		if (base[i] == '-' || base[i] == '+' || base[i] < 32 || base[i] >= 127)
 			return (0);
 		j = 0;
 		while (j < i)
@@ -93,7 +93,7 @@ int	ft_atoi_base(char *str, char *base)
 
 // int	main()
 // {
-// 	char	str[] = "   ---+-+- -7FFFFFFF+5354";
+// 	char	str[] = "   ---+-+--FF+5354";
 //     char    base[] = "0123456789ABCDEF";
 // 	int	a;
 // 	a = ft_atoi_base(str, base);
