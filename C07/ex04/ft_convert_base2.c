@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 21:23:19 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/15 03:07:11 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/22 03:41:06 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/22 03:42:10 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-// #include <unistd.h>
+#include <unistd.h>
 
 int	check_base(char *base)
 {
@@ -89,13 +89,4 @@ int	ft_atoi_base(char *str, char *base)
 	positif = 1;
 	atoi = process(str, base, i, positif);
 	return (atoi);
-}
-
-int	main()
-{
-	char	str[] = "   ---+-+--255+5354";
-    char    base[] = "0123456789";
-	int	a;
-	a = ft_atoi_base(str, base);
-	printf("resultat :%d", a);    
 }

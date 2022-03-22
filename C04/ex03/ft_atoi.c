@@ -21,7 +21,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	nb = 0;
 	positif = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] <= ' ')
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -37,10 +37,10 @@ int	ft_atoi(char *str)
 	return (nb * positif);
 }
 
-// int	main()
-// {
-// 	char	str[] = " ---+- -+1234ab567";
-// 	int	a;
-// 	a = ft_atoi(str);
-// 	printf("resultat :%d", a);    
-// }
+int	main()
+{
+	char	str[] = " ---+--+1234ab567";
+	int	a;
+	a = ft_atoi(str);
+	printf("resultat :%d", a);    
+}

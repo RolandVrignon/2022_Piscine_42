@@ -20,7 +20,7 @@ int	check_base(char *base)
 	i = 0;
 	while (base[i] != '\0')
 	{
-		if (base[i] == '-' || base[i] == '+' || base[i] < 32 || base[i] >= 127)
+		if (base[i] == '-' || base[i] == '+')
 			return (0);
 		j = 0;
 		while (j < i)
@@ -47,10 +47,10 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	if (nb < 0)
 	{
-		write(1, "-", 1);
 		nb = nb * -1;
+		write(1, "-", 1);
 	}
-	if (nb > i)
+	if (nb >= i)
 	{
 		ft_putnbr_base((nb / i), base);
 		ft_putnbr_base((nb % i), base);
@@ -61,9 +61,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 }
 
-// int main(void)
-// {
-//     int nb = -255;
-//     char base[] = "0123465789abcdef";   
-//     ft_putnbr_base(nb, base);
-// }
+int main(void)
+{
+    int nb = 42;
+    char base[] = "0123456789abcdef";   
+    ft_putnbr_base(nb, base);
+}

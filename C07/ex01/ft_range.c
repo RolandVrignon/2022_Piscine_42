@@ -12,6 +12,7 @@
 
 #include <limits.h>
 #include <stdlib.h>
+// #include <stdio.h>
 
 int	*ft_range(int min, int max)
 {
@@ -20,29 +21,32 @@ int	*ft_range(int min, int max)
 	int				*buffer;
 
 	i = 0;
+	if (min >= max)
+		return (0);
 	range = max - min;
 	buffer = malloc(sizeof(int) * range);
-	while (i++ < range - 1)
+	while (i != range - 1)
+	{
 		buffer[i] = min + i;
+		i++;
+	}
 	return (buffer);
 }
 
-int	main(int ac, char **av)
-{
-	int				min;
-	int				max;
-	int				range;
-	int				*buffer;
-	unsigned int	i;
+// int	main(int ac, char **av)
+// {
+// 	int				min;
+// 	int				max;
+// 	int				range;
+// 	int				*buffer;
+// 	unsigned int	i;
 
-	min = INT_MIN;
-	max = INT_MAX;
-	range = max - min;
-	i = 0;
-	if (min >= max)
-		return (0);
-	buffer = ft_range(min, max);
-	while (i < range)
-		i++;
-	return (0);
-}
+// 	min = INT_MIN;
+// 	max = INT_MAX;
+// 	range = max - min;
+// 	buffer = ft_range(min, max);
+// 	i = 0;
+// 	while (i++ < range)
+// 		printf("%d , ", buffer[i - 1]);
+// 	return (0);
+// }
