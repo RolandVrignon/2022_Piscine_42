@@ -6,13 +6,13 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 13:30:25 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/16 13:37:18 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/22 18:19:51 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-int ft_fibonacci(int index)
+int	ft_fibonacci(int index)
 {
 	if (index < 0)
 		return (-1);
