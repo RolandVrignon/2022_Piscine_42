@@ -1,53 +1,33 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 13:57:02 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/16 14:10:35 by rvrignon         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdio.h>
 
-#include <limits.h>
-// #include <stdio.h>
-
-int	ft_is_prime(int nb)
+int    ft_is_prime(int nb)
 {
-	int	n;
+    long long int    i;
 
-	n = 2;
-	if (nb < 2 || nb > INT_MAX)
-		return (0);
-	while (n <= nb / 2)
-	{
-		if (nb % n == 0)
-			return (0);
-		n++;
-	}
-	return (1);
+    i = 2;
+    while (i * i <= nb)
+    {
+        if (nb % i == 0)
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
-int	ft_find_next_prime(int nb)
+int    ft_find_next_prime(int nb)
 {
-	if (nb < 2 || nb > INT_MAX)
-		return (0);
-	else if (ft_is_prime(nb) == 1)
-		return (nb);
-	else
-	{
-		while (ft_is_prime(nb) != 1)
-		{
-			if (nb > INT_MAX)
-				return (0);
-			nb++;
-		}
-		return (nb);
-	}
+    if (nb < 2)
+        return (2);
+    if (ft_is_prime(nb))
+        return (nb);
+    while (!(ft_is_prime(nb)) && nb <= 2147483647)
+        nb++;
+    return (nb);
 }
 
-// int main ()
+// int    main()
 // {
-//     printf("Resultat : %d", ft_find_next_prime(61));
+//     printf("%d\n", ft_find_next_prime(4));
+//     printf("%d\n", ft_find_next_prime(14));
+//     printf("%d\n", ft_find_next_prime(2147483630));
 // }
