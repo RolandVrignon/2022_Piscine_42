@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+// #include <stdio.h>
+#include <limits.h>
 
 int	ft_is_prime(int nb)
 {
@@ -32,7 +33,7 @@ int	ft_find_next_prime(int nb)
 		return (2);
 	if (ft_is_prime(nb))
 		return (nb);
-	while (!(ft_is_prime(nb)) && nb <= 2147483647)
+	while (!(ft_is_prime(nb)) && nb <= INT_MAX)
 		nb++;
 	return (nb);
 }
@@ -41,5 +42,5 @@ int	ft_find_next_prime(int nb)
 // {
 //     printf("%d\n", ft_find_next_prime(4));
 //     printf("%d\n", ft_find_next_prime(14));
-//     printf("%d\n", ft_find_next_prime(2147483630));
+// 	   printf("%d\n", ft_find_next_prime(2147483647));
 // }
