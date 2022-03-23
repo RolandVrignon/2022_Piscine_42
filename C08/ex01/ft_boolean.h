@@ -6,14 +6,16 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:25:58 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/23 16:28:12 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:53:00 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_BOOLEAN_H
 # define FT_BOOLEAN_H
 
-# define t_bool int
+# include <unistd.h>
+
+typedef int		t_bool;
 # define FALSE 0
 # define TRUE 1
 # define SUCCESS 0
