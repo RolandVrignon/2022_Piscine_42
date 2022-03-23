@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/23 16:19:29 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/23 16:24:30 by rvrignon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 typedef struct s_stock_str
 {
-    int size;
-    char *str;
-    char *copy;
-} t_stock_str;
+	int		size;
+	char	*str;
+	char	*copy;
+}	t_stock_str;
 
 void	ft_putchar(char c)
 {
@@ -46,28 +58,29 @@ void	ft_putstr(char *str)
 	}
 }
 
-void ft_show_tab(struct s_stock_str *par)
+void	ft_show_tab(struct s_stock_str *par)
 {
-    if (!par)
-        return ;
-    while (par->str)
-    {
-        ft_putstr(par->str);
-        write(1,"\n",1);
-        ft_putnbr(par->size);
-        write(1,"\n",1);
-        ft_putstr(par->copy);
-        write(1,"\n",1);
-        par++;
-    }
+	if (!par)
+		return ;
+	while (par->str)
+	{
+		ft_putstr(par->str);
+		write(1, "\n", 1);
+		ft_putnbr(par->size);
+		write(1, "\n", 1);
+		ft_putstr(par->copy);
+		write(1, "\n", 1);
+		par++;
+	}
 }
 
-int main(int ac, char **av)
+/*
+int	main(int ac, char **av)
 {
-    t_stock_str *tab;
+	t_stock_str *tab;
 
     tab = ft_strs_to_tab(ac, av);
     if(tab)
         ft_show_tab(tab);
     return (0);
-}
+}*/
