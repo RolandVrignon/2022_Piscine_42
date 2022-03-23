@@ -15,7 +15,7 @@
 
 int	ft_is_prime(int nb)
 {
-	long long int	i;
+	unsigned int	i;
 
 	i = 2;
 	while (i * i <= nb)
