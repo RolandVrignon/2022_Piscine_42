@@ -52,9 +52,9 @@ void    fill_tab(int index, int last_index, char *tab, char *str)
     int i;
 
     i = 0;
-    while(index < last_index - 1)
+    while(index < last_index)
     {
-        tab[i] = str[index + 1];
+        tab[i] = str[index];
         index++;
         i++;
     }
@@ -84,9 +84,9 @@ char	**ft_split(char *str, char *charset)
         last_index = -1;
         while (str[j] != '\0')
         {
-            if (is_sep(str[j], charset) && !is_sep(str[j + 1], charset) && str[j + 1] != '\0' && index == -1)
+            if (!is_sep(str[j], charset) && is_sep(str[j - 1], charset) && str[j + 1] != '\0' && index == -1)
                 index = j;
-            else if (is_sep(str[j], charset) && (!is_sep(str[j - 1], charset) || str[j + 1] != '\0'))
+            else if (is_sep(str[j], charset) && (!is_sep(str[j - 1], charset) || str[j + 1] != '\0') && index != -1)
                 last_index = j;
             else if (index != -1 && str[j + 1] == '\0')
                 last_index = j + 1;
@@ -107,14 +107,14 @@ char	**ft_split(char *str, char *charset)
 
 int main()
 {
-    char str[] = "babcdefghijbhfsjdk";
-    char charset[] = "bf";
+    char str[] = "-----------ba|bcd-ef////ghij|bhfsj-------dk---";
+    char charset[] = "-/|";
     char **tab;
     tab = ft_split(str, charset);
     
     int i = 0;
 
-    while (tab[i])
+    while (i < 6)
     {
         printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
         i++;
