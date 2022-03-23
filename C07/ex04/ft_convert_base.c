@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 00:55:23 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/22 03:49:52 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:38:14 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		nb;
 	char	*r;
 	char	*result;
-	
+
 	r = malloc(sizeof(char) * 40);
 	nb = ft_atoi_base(nbr, base_from);
 	result = ft_putnbr_base(nb, base_to, 0, r);
@@ -88,7 +88,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (result);
 }
 
-int main()
+/*int main()
 {
     char nbr[] = "-80000000";
     char base_from[] = "0123456789abcdef";
@@ -96,4 +96,4 @@ int main()
 
     printf("Test : %s\n", ft_convert_base(nbr, base_from, base_to));
     return (0);
-}
+}*/
