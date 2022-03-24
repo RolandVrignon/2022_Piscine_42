@@ -25,6 +25,8 @@ int	*ft_range(int min, int max)
 		return (0);
 	range = max - min;
 	buffer = malloc(sizeof(int) * range);
+	if (!buffer)
+		return (0);
 	while (i != range - 1)
 	{
 		buffer[i] = min + i;
