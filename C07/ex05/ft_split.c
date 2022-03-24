@@ -88,7 +88,7 @@ char	**process(int size, char **tab, char *s, char *ch)
 		{
 			if (!x(s[j], ch) && (x(s[j - 1], ch) || j == 0))
 				st = j;
-			if (x(s[j], ch) && !x(s[j - 1], ch) && st != -1 || s[j + 1] == '\0')
+			if ((x(s[j], ch) && !x(s[j - 1], ch) && st != -1) || (st != -1 && s[j + 1] == '\0'))
 				end = j + 1;
 			if (st != -1 && end > st)
 			{
@@ -110,6 +110,8 @@ char	**ft_split(char *str, char *charset)
 	if (size == 0)
 		return (0);
 	tab = malloc(sizeof(char *) * (size + 1));
+	if (!tab)
+		return (0);
 	tab[size - 1] = malloc(sizeof(char) * 1);
 	tab[size - 1][0] = '0';
 	return (process(size, tab, str, charset));
