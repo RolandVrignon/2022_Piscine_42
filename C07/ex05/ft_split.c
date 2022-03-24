@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_xlit.c                                         :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -101,7 +101,7 @@ char	**process(int size, char **tab, char *s, char *ch)
 	return (tab);
 }
 
-char	**ft_slit(char *str, char *charset)
+char	**ft_split(char *str, char *charset)
 {
 	char	**tab;
 	int		size;
@@ -115,17 +115,17 @@ char	**ft_slit(char *str, char *charset)
 	return (process(size, tab, str, charset));
 }
 
-// int main()
-// {
-//     char str[] = "d--dsjh-daslk-djlks-s";
-//     char charset[] = "-/|";
-//     char **tab;
-//     tab = ft_slit(str, charset);
-//     int i = 0;
-//     while (tab[i])
-//     {
-//         printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
-//         i++;
-//     }
-//     return (0);
-// }
+int main()
+{
+    char str[] = "d--dsjh-daslk-djlks-s";
+    char charset[] = "-/|";
+    char **tab;
+    tab = ft_split(str, charset);
+    int i = 0;
+    while (tab[i])
+    {
+        printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
+        i++;
+    }
+    return (0);
+}

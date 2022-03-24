@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_stock_str
-{
-	int		size;
-	char	*str;
-	char	*copy;
-}	t_stock_str;
+#include <ft_stock_str.h>
+
+// typedef struct s_stock_str
+// {
+// 	int		size;
+// 	char	*str;
+// 	char	*copy;
+// }	t_stock_str;
 
 void	ft_putchar(char c)
 {
