@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_top(int **tab, int **conditions, int c, int size)
+int check_top(int **tab, int **conditions, int c, int size)
 {
-	int	nb;
-	int	compteur;
-	int	max;
-	int	i;
+	int nb;
+	int compteur;
+	int max;
+	int i;
 
 	i = -1;
+	max = 0;
 	nb = conditions[0][c];
 	compteur = 0;
 	while (i++ < size - 1)
@@ -25,7 +26,7 @@ int	check_top(int **tab, int **conditions, int c, int size)
 		if (tab[i][c] == 0)
 		{
 			compteur = 0;
-			break ;
+			break;
 		}
 		if (tab[i][c] > max)
 		{
@@ -38,20 +39,21 @@ int	check_top(int **tab, int **conditions, int c, int size)
 	return (1);
 }
 
-int	check_bottom(int **tab, int **conditions, int c, int size)
+int check_bottom(int **tab, int **conditions, int c, int size)
 {
-	int	nb;
-	int	compteur;
-	int	max;
+	int nb;
+	int compteur;
+	int max;
 
 	nb = conditions[1][c];
 	compteur = 0;
+	max = 0;
 	while (size != 0)
 	{
 		if (tab[size - 1][c] == 0)
 		{
 			compteur = 0;
-			break ;
+			break;
 		}
 		if (tab[size - 1][c] > max)
 		{
@@ -65,23 +67,24 @@ int	check_bottom(int **tab, int **conditions, int c, int size)
 	return (1);
 }
 
-int	check_left(int **tab, int **conditions, int r, int size)
+int check_left(int **tab, int **conditions, int r, int size)
 {
-	int	nb;
-	int	compteur;
-	int	max;
-	int	i;
+	int nb;
+	int compteur;
+	int max;
+	int i;
 
 	i = -1;
 	nb = conditions[2][r];
 	compteur = 0;
+	max = 0;
 	while (i++ < size - 1)
 	{
 		if (tab[r][i] == 0)
 		{
 			compteur = 0;
-			break ;
-		}	
+			break;
+		}
 		if (tab[r][i] > max)
 		{
 			compteur = compteur + 1;
@@ -93,20 +96,21 @@ int	check_left(int **tab, int **conditions, int r, int size)
 	return (1);
 }
 
-int	check_right(int **tab, int **conditions, int r, int size)
+int check_right(int **tab, int **conditions, int r, int size)
 {
-	int	nb;
-	int	compteur;
-	int	max;
+	int nb;
+	int compteur;
+	int max;
 
 	nb = conditions[3][r];
 	compteur = 0;
+	max = 0;
 	while (size != 0)
 	{
 		if (tab[r][size - 1] == 0)
 		{
 			compteur = 0;
-			break ;
+			break;
 		}
 		if (tab[r][size - 1] > max)
 		{
@@ -120,10 +124,10 @@ int	check_right(int **tab, int **conditions, int r, int size)
 	return (1);
 }
 
-int	is_complete(int **tab, int size)
+int is_complete(int **tab, int size)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = -1;
 	while (i++ < size - 1)
