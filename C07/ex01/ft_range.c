@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
+// #include <limits.h>
 #include <stdlib.h>
 // #include <stdio.h>
 
@@ -20,18 +20,15 @@ int	*ft_range(int min, int max)
 	unsigned int	range;
 	int				*buffer;
 
-	i = 0;
 	if (min >= max)
 		return (0);
 	range = max - min;
 	buffer = malloc(sizeof(int) * range);
 	if (!buffer)
 		return (0);
-	while (i != range - 1)
-	{
+	i = -1;
+	while (++i < max)
 		buffer[i] = min + i;
-		i++;
-	}
 	return (buffer);
 }
 
@@ -43,12 +40,15 @@ int	*ft_range(int min, int max)
 // 	int				*buffer;
 // 	unsigned int	i;
 
-// 	min = INT_MIN;
-// 	max = INT_MAX;
+// 	min = 0;
+// 	max = 14;
 // 	range = max - min;
 // 	buffer = ft_range(min, max);
 // 	i = 0;
-// 	while (i++ < range)
-// 		printf("%d , ", buffer[i - 1]);
+// 	while (i <= range)
+// 	{
+// 		printf("%d , ", buffer[i]);
+// 		i++;
+// 	}
 // 	return (0);
 // }

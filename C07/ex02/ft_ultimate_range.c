@@ -15,25 +15,21 @@
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	long long int	i;
-	long long int	diff;
+	long int	i;
 
 	if (max <= min)
 	{
-		range = NULL;
+		*range = NULL;
 		return (0);
 	}
-	diff = max - min;
-	range[0] = malloc(diff * sizeof(int));
-	if (!range[0])
-		return (0);
+	max -= min;
+	*range = malloc(max * sizeof(int));
+	if (!*range)
+		return (-1);
 	i = -1;
-	while (++i < diff)
-		range[0][i] = min++;
-	i = 0;
-	while (range[i])
-		i++;
-	return (i);
+	while (++i < max)
+		(*range)[i] = min + 1;
+	return (max);
 }
 
 // int main()
@@ -43,8 +39,8 @@ int	ft_ultimate_range(int **range, int min, int max)
 //     int max;
 //     int nb;
 
-//     min = -32;
-//     max = 30;
+//     min = -1;
+//     max = 19;
 
 //     range = malloc(sizeof(int) * 2);
 
