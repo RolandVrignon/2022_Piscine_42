@@ -74,8 +74,7 @@ void	fill_tab(int index, int last_index, char *tab, char *str)
 
 char	**process(int size, char **tab, char *s, char *ch)
 {
-	int	st;
-	int	end;
+	int	st[2];
 	int	i;
 	int	j;
 
@@ -83,17 +82,18 @@ char	**process(int size, char **tab, char *s, char *ch)
 	i = -1;
 	while (i++ < size - 2)
 	{
-		st = -1;
+		st[0] = -1;
 		while (s[++j] != '\0')
 		{
 			if (!x(s[j], ch) && (x(s[j - 1], ch) || j == 0))
-				st = j;
-			if ((x(s[j], ch) && !x(s[j - 1], ch) && st != -1) || (st != -1 && s[j + 1] == '\0'))
-				end = j + 1;
-			if (st != -1 && end > st)
+				st[0] = j;
+			if ((x(s[j], ch) && !x(s[j - 1], ch) && st[0] != -1)
+				|| (st[0] != -1 && s[j + 1] == '\0'))
+				st[1] = j + 1;
+			if (st[0] != -1 && st[1] > st[0])
 			{
-				tab[i] = malloc(sizeof(char) * ((end - st) + 1));
-				fill_tab(st, end, tab[i], s);
+				tab[i] = malloc(sizeof(char) * ((st[1] - st[0]) + 1));
+				fill_tab(st[0], st[1], tab[i], s);
 				break ;
 			}
 		}
@@ -117,17 +117,17 @@ char	**ft_split(char *str, char *charset)
 	return (process(size, tab, str, charset));
 }
 
-int main()
-{
-    char str[] = "d--dsjh-daslk-djlks-s";
-    char charset[] = "-/|";
-    char **tab;
-    tab = ft_split(str, charset);
-    int i = 0;
-    while (tab[i])
-    {
-        printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
-        i++;
-    }
-    return (0);
-}
+// int main()
+// {
+//     char str[] = "d--dsjh-daslk-djlks-s";
+//     char charset[] = "-/|";
+//     char **tab;
+//     tab = ft_split(str, charset);
+//     int i = 0;
+//     while (tab[i])
+//     {
+//         printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
+//         i++;
+//     }
+//     return (0);
+// }
