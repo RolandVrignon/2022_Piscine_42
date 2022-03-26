@@ -46,26 +46,26 @@ int	how_many_str(char *str, char *charset)
 	return (nb + 1);
 }
 
-void	fill_tab(int index, int last_index, char *tab, char *str)
+void	fill_tab(int *st, char *tab, char *str, char *charset)
 {
 	int	i;
 
 	i = 0;
-	if (str[last_index] == '\0')
+	if (str[st[1]] == '\0' && !x(str[st[1] - 1], charset))
 	{	
-		while (str[index] != '\0')
+		while (str[st[0]] != '\0')
 		{
-			tab[i] = str[index];
-			index++;
+			tab[i] = str[st[0]];
+			st[0]++;
 			i++;
 		}
 	}
 	else
 	{
-		while (index < last_index - 1)
+		while (st[0] < st[1] - 1)
 		{
-			tab[i] = str[index];
-			index++;
+			tab[i] = str[st[0]];
+			st[0]++;
 			i++;
 		}
 	}
@@ -93,7 +93,7 @@ char	**process(int size, char **tab, char *s, char *ch)
 			if (st[0] != -1 && st[1] > st[0])
 			{
 				tab[i] = malloc(sizeof(char) * ((st[1] - st[0]) + 1));
-				fill_tab(st[0], st[1], tab[i], s);
+				fill_tab(st, tab[i], s, ch);
 				break ;
 			}
 		}
@@ -119,8 +119,8 @@ char	**ft_split(char *str, char *charset)
 
 // int main()
 // {
-//     char str[] = "d--dsjh-daslk-djlks-s";
-//     char charset[] = "-/|";
+//     char str[] = "BKI3fXhcuwKMzhuDGpPVdcBmflAEFSz1";
+//     char charset[] = "IU Ci0";
 //     char **tab;
 //     tab = ft_split(str, charset);
 //     int i = 0;
