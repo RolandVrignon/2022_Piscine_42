@@ -113,7 +113,7 @@ char	**ft_split(char *str, char *charset)
 	if (!tab)
 		return (0);
 	tab[size - 1] = malloc(sizeof(char) * 1);
-	tab[size - 1][0] = '0';
+	tab[size - 1] = 0;
 	return (process(size, tab, str, charset));
 }
 

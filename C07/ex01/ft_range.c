@@ -12,11 +12,11 @@
 
 // #include <limits.h>
 #include <stdlib.h>
-// #include <stdio.h>
+#include <stdio.h>
 
 int	*ft_range(int min, int max)
 {
-	unsigned int	i;
+	int				i;
 	unsigned int	range;
 	int				*buffer;
 
@@ -28,7 +28,9 @@ int	*ft_range(int min, int max)
 		return (0);
 	i = -1;
 	while (++i < max)
+	{
 		buffer[i] = min + i;
+	}
 	return (buffer);
 }
 
@@ -45,9 +47,8 @@ int	*ft_range(int min, int max)
 // 	range = max - min;
 // 	buffer = ft_range(min, max);
 // 	i = 0;
-// 	while (i <= range)
+// 	while (i < range)
 // 	{
-// 		printf("%d , ", buffer[i]);
 // 		i++;
 // 	}
 // 	return (0);
