@@ -296,7 +296,7 @@ char    *ft_split_value(char *str)
     return (ret);
 }
 
-t_dict *create_element(char *str)
+t_dict *create_element(char *str, t_dict *tmp)
 {
     t_dict *elem;
 
@@ -304,7 +304,7 @@ t_dict *create_element(char *str)
     elem->key = ft_split_key(str);
     elem->value = ft_split_value(str);
     elem->next = NULL;
-    elem->previous = NULL;
+    elem->previous = tmp;
     return (elem);
 }
 
@@ -315,8 +315,7 @@ void    add_element(char *str, t_dict *elem)
         while (elem->next != NULL)
                 elem = elem->next;
         tmp = elem;
-        elem->next = create_element(str);
-        elem->next->previous = tmp;
+        elem->next = create_element(str, tmp);
 }
 
 char    *rev_str(char *str)
@@ -355,7 +354,7 @@ t_dict *create_list(int ac)
         close(fd);
         lines = ft_split(read_buffer, "\n");
         i = 0;
-        dict = create_element(lines[i]);
+        dict = create_element(lines[i], 0);
         while (lines[i] != NULL)
         {
             add_element(lines[i], dict);
@@ -364,3 +363,88 @@ t_dict *create_list(int ac)
     }
     return (dict);
 }
+
+t_dict    *go_to(t_dict *dict, char *search)
+{
+
+        while (ft_strcmp(search, dict->key) != 0 && dict->next != NULL)
+                dict = dict->next;
+
+        if (!ft_strcmp(search, dict->key))
+                return (dict);
+
+        while (ft_strcmp(search, dict->key) != 0)
+                dict = dict->previous;
+
+        return (dict);
+}
+
+char    *ft_substr(char *str, int pos, int len)
+{
+    int i;
+    char *tmp;
+
+    tmp = (char*)malloc(sizeof(char) * len);
+    i = 0;
+    while (i < len)
+        tmp[i] = str[i + pos];
+    return (tmp);
+}
+
+// char **maketab(char *number)
+// {
+//     int i;
+//     int j;
+//     int h;
+//     int size;
+//     int modulo;
+//     char **tab;
+    
+//     i = 0;
+
+//     while (number[i] != '\0')
+//         i++;
+//     size = i / 3;
+//     modulo = i % 3;
+//     tab = malloc(sizeof(char) * (size + modulo + 1));
+//     j = 0;
+//     while (j < (size + modulo))
+//     {
+//         h = 0;
+//         tab[j] = malloc(sizeof(char) * 10);
+//         while (i > 0)
+//         {
+//             tab[j][h] = number[i];
+//             j++;
+//             h++;
+//             if (j % 3 == 0)
+//             {
+//                     tab[i][j] = '\0';
+//                     break ;
+//             }
+//         }
+//         i++;
+//     }
+//     printf("JJJJJ %d", j);
+//     return (tab);
+// }
+
+
+// int *tabtoint(char **chartab)
+// {
+//     int size;
+//     int i;
+//     int *tab;
+
+//     size = 0;
+//     while (chartab[size] != 0)
+//         size++;
+//     tab = malloc(sizeof(int) * size);
+//     i = 0;
+//     while(i < size)
+//     {
+//         tab[i] = ft_atoi(chartab[i]);
+//         i++;
+//     }
+//     return (tab);
+// }

@@ -26,7 +26,7 @@ typedef struct s_triple
 
 void    add_element(char *str, t_dict *elem);
 
-t_dict *create_element(char *str);
+t_dict *create_element(char *str, t_dict *tmp);
 
 void    ft_putchar(char c);
 
@@ -65,6 +65,10 @@ unsigned int strlen_space(char *str);
 char    *rev_str(char *str);
 
 t_dict *create_list(int ac);
+
+t_dict    *go_to(t_dict *dict, char *search);
+
+char **maketab(char *number);
 
  // { 
  //     char str[] = "d--dsjh-daslk-djlks-s"; 
