@@ -407,6 +407,19 @@ t_dict *create_list(int ac)
         return (dict);
 }
 
+void print_element(char *str)
+{
+        int i;
+
+        i = 0;
+        while (str[i] != '\0')
+        {
+                write(1, &str[i], 1);
+                i++;
+        }
+        write(1, " ", 1);
+}
+
 t_dict *go_to(t_dict *dict, int int_search)
 {
         char *search;
@@ -519,19 +532,19 @@ void print_number(char *nbr, t_dict *dict)
         if (hundred != 0)
         {
                 dict = go_to(dict, hundred);
-                printf(" %s", dict->value);
+                print_element(dict->value);
                 dict = go_to(dict, 100);
-                printf(" %s", dict->value);
+                print_element(dict->value);
         }
         if(dizaine != 0)
         {
                 dict = go_to(dict, dizaine);
-                printf(" %s", dict->value);
+                print_element(dict->value);
         }
         if(units != 0)
         {
                 dict = go_to(dict, units);
-                printf(" %s", dict->value);
+                print_element(dict->value);
         }
         if(!hundred && !dizaine && !units)
                 return ;
@@ -571,7 +584,7 @@ void print_tab(t_dict *dict, char **tab)
             while (ft_strcmp(test, p_dict->key) != 0 && p_dict->next != NULL)
                 p_dict = p_dict->next;
 
-            printf(" %s ", p_dict->value);
+            print_element( p_dict->value);
         }
         i++;
     }

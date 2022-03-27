@@ -82,18 +82,6 @@ void print_number(char *nbr, t_dict *dict);
 
 void print_tab(t_dict *dict, char **tab);
 
- // { 
- //     char str[] = "d--dsjh-daslk-djlks-s"; 
- //     char charset[] = "-/|"; 
- //     char **tab; 
- //     tab = ft_split(str, charset); 
- //     int i = 0; 
- //     while (tab[i]) 
- //     { 
- //         printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]); 
- //         i++; 
- //     } 
- //     return (0); 
- // }
+void print_element(char *str);
 
 #endif
