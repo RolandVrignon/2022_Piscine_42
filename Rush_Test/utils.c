@@ -53,29 +53,39 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	ft_atoi(char *str)
 {
-	long int	ret;
-	long int	i;
-	int			sign;
+	int	i;
+	int	nb;
 
-	sign = 1;
 	i = 0;
-	ret = 0;
-	while (str[i] >= '\a' && str[i] <= ' ')
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	nb = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (str[i] == '-')
-		{
-			sign = -sign;
-			i++;
-		}
-		while (str[i] >= 48 && str[i] <= 57)
-		{
-			ret = ret * 10 + (str[i] - '0');
-			i++;
-		}
+		nb = nb * 10 + (str[i] - '0');
+		i++;
 	}
-	return (sign * ret);
+	return (nb);
+}
+
+int	ft_iterative_power(int nb, int power)
+{
+	int	r;
+
+	r = 1;
+	if (!(power >= 0))
+		return (0);
+	else if (power == 0)
+		return (1);
+	else if (nb == 0 && power == 0)
+		return (1);
+	else
+	{
+		while (power > 0)
+		{
+			r = r * nb;
+			power--;
+		}
+		return (r);
+	}		
 }
 
 int		ft_check_base(char *base)
@@ -294,14 +304,19 @@ t_dict *create_element(char *str)
     elem->key = ft_split_key(str);
     elem->value = ft_split_value(str);
     elem->next = NULL;
+    elem->previous = NULL;
     return (elem);
 }
 
 void    add_element(char *str, t_dict *elem)
 {
-    while (elem->next != NULL)
-        elem = elem->next;
-    elem->next = create_element(str);
+        t_dict *tmp;
+
+        while (elem->next != NULL)
+                elem = elem->next;
+        tmp = elem;
+        elem->next = create_element(str);
+        elem->next->previous = tmp;
 }
 
 char    *rev_str(char *str)
@@ -324,24 +339,28 @@ char    *rev_str(char *str)
         return (str);
 }
 
-
-/* t_triple *create_number(char *str)
+t_dict *create_list(int ac)
 {
-    t_triple *elem;
+    t_dict *dict;
+    int fd;
+    char read_buffer[1000];
+    char **lines;
+    int i;
 
-    elem = (t_triple *)malloc(sizeof(t_triple));
-    elem->unit = ;
-    elem->ten = ;
-    elem->hundred = ;
-    elem->next = NULL;
-    return (elem);
+    fd = open("numbers.dict", O_RDONLY);
+
+    if (fd != -1 && ac)
+    {
+        read(fd, read_buffer, 1000);
+        close(fd);
+        lines = ft_split(read_buffer, "\n");
+        i = 0;
+        dict = create_element(lines[i]);
+        while (lines[i] != NULL)
+        {
+            add_element(lines[i], dict);
+            i++;
+        }
+    }
+    return (dict);
 }
-
-void    add_number(char *str, t_triple *elem)
-{
-    while (elem->next != NULL)
-        elem = elem->next;
-    elem->next = create_number(str);
-} */
-
- // int main() 
