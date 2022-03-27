@@ -6,7 +6,7 @@
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:12:08 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/27 22:14:45 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/03/27 22:45:34 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,44 +57,51 @@ void	print_number(char *nbr, t_dict *dict)
 		nb = nb % dizaine;
 	}
 	if (nb > 0)
-		units = nb;	
+		units = nb;
 	end_print(hundred, dizaine, units, dict);
 }
 
-void print_tab(t_dict *dict, char **tab)
+void	test(t_dict *dict, int power)
 {
-    int size = 0;
-    int i = 0;
-    int power = 0;
-    t_dict *p_dict;
+	char	*test;
+	int		k;
+	t_dict	*p_dict;
 
-    while (tab[size])
-        size++;
-    while (i < size)
-    {
-        print_number(tab[i], dict);
-        power = ((size - 1) - i) * 3;
-        if (power != 0 && strcmp(tab[i], "000") != 0)
-        {
-            char test[power + 2];
-            int k = 0;
-            while (power + 1 > 0)
-            {
-                if (k == 0)
-                    test[0] = '1';
-                else
-                    test[k] = '0';
-                k++;
-                power--;
-            }
-            test[k] = '\0';
+	test = malloc(sizeof(char) * 3);
+	k = 0;
+	while (power + 1 > 0)
+	{
+		if (k == 0)
+			test[0] = '1';
+		else
+			test[k] = '0';
+		k++;
+		power--;
+	}
+	test[k] = '\0';
+	p_dict = dict;
+	while (ft_strcmp(test, p_dict->key) != 0 && p_dict->next != NULL)
+		p_dict = p_dict->next;
+	print_element(p_dict->value);
+}
 
-            p_dict = dict;
-            while (ft_strcmp(test, p_dict->key) != 0 && p_dict->next != NULL)
-                p_dict = p_dict->next;
+void	print_tab(t_dict *dict, char **tab)
+{
+	int	size;
+	int	i;
+	int	power;
 
-            print_element(p_dict->value);
-        }
-        i++;
-    }
+	size = 0;
+	i = 0;
+	power = 0;
+	while (tab[size])
+		size++;
+	while (i < size)
+	{
+		print_number(tab[i], dict);
+		power = ((size - 1) - i) * 3;
+		if (power != 0 && strcmp(tab[i], "000") != 0)
+			test(dict, power);
+		i++;
+	}
 }
