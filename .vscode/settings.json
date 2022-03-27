@@ -9,6 +9,8 @@
         "fstream": "c",
         "istream": "c",
         "ranges": "c",
-        "streambuf": "c"
+        "streambuf": "c",
+        "algorithm": "c",
+        "utils.h": "c"
     }
 }

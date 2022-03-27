@@ -32,6 +32,10 @@ void    ft_putchar(char c);
 
 void	ft_swap(int *a, int *b);
 
+int ft_nblen(long nb);
+
+char *ft_itoa(int nbr);
+
 void	ft_putstr(char *str);
 
 int	ft_strlen(char *str);
@@ -66,9 +70,16 @@ char    *rev_str(char *str);
 
 t_dict *create_list(int ac);
 
-t_dict    *go_to(t_dict *dict, char *search);
+t_dict    *go_to(t_dict *dict, int int_search);
 
 char **maketab(char *number);
+
+char    *ft_substr(char *str, int pos, int len);
+
+char **triple_tab(char *str);
+
+void print_number(char *nbr, t_dict *dict);
+
 
  // { 
  //     char str[] = "d--dsjh-daslk-djlks-s"; 
