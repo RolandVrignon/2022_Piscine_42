@@ -72,7 +72,7 @@ void	add_element(char *str, t_dict *elem)
 	elem->next = create_element(str, tmp);
 }
 
-t_dict	*create_list(int ac)
+t_dict	*create_list(int ac, char *file)
 {
 	t_dict	*dict;
 	int		fd;
@@ -80,7 +80,7 @@ t_dict	*create_list(int ac)
 	char	read_buffer[1000];
 	char	**lines;
 
-	fd = open("numbers.dict", O_RDONLY);
+	fd = open(file, O_RDONLY);
 	if (fd != -1 && ac)
 	{
 		read(fd, read_buffer, 1000);

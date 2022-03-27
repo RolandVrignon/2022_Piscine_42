@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eannesta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/27 20:26:49 by eannesta          #+#    #+#             */
-/*   Updated: 2022/03/27 22:35:06 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/27 23:30:23 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/27 23:30:25 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_dict			*create_element(char *str, t_dict *tmp);
 
 void			add_element(char *str, t_dict *elem);
 
-t_dict			*create_list(int ac);
+t_dict			*create_list(int ac, char *file);
 
 t_dict			*go_to(t_dict *dict, int int_search);
 
