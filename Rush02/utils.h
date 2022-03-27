@@ -10,7 +10,7 @@
 
 typedef struct dict
 {
-    char key;
+    char *key;
     char *value;
     struct dict *next;
     struct dict *previous;
@@ -63,6 +63,8 @@ char *ft_split_key(char *str);
 unsigned int strlen_space(char *str);
 
 char    *rev_str(char *str);
+
+t_dict *create_list(int ac);
 
  // { 
  //     char str[] = "d--dsjh-daslk-djlks-s"; 
