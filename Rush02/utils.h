@@ -80,6 +80,7 @@ char **triple_tab(char *str);
 
 void print_number(char *nbr, t_dict *dict);
 
+void print_tab(t_dict *dict, char **tab);
 
  // { 
  //     char str[] = "d--dsjh-daslk-djlks-s"; 

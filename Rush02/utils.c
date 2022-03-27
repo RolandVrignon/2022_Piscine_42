@@ -82,19 +82,18 @@ int ft_strlen(char *str)
         return (strlen);
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-        int i;
+	unsigned int	i;
 
-        i = 0;
-        while (s1[i] != '\0')
-        {
-                if (s1[i] == s2[i])
-                        i++;
-                else
-                        return (i = s1[i] - s2[i]);
-        }
-        return (0);
+	i = 0;
+	while ((*(s1 + i) || *(s2 + i)))
+	{
+		if ((*(s1 + i) != *(s2 + i)))
+			return (*(s1 + i) - *(s2 + i));
+		i++;
+	}
+	return (0);
 }
 
 int ft_atoi(char *str)
@@ -403,6 +402,7 @@ t_dict *create_list(int ac)
                         add_element(lines[i], dict);
                         i++;
                 }
+                lines[i] = 0;
         }
         return (dict);
 }
@@ -410,18 +410,21 @@ t_dict *create_list(int ac)
 t_dict *go_to(t_dict *dict, int int_search)
 {
         char *search;
+        int current_key;
 
         search = ft_itoa(int_search);
+        current_key = ft_atoi(dict->key);
 
-        while (ft_strcmp(search, dict->key) != 0 && dict->next != NULL)
-                dict = dict->next;
-
-        if (ft_strcmp(search, dict->key) == 0)
-                return (dict);
-
-        while (ft_strcmp(search, dict->key) != 0)
-                dict = dict->previous;
-
+        if (int_search > current_key)
+        {
+                while (ft_strcmp(search, dict->key) != 0 && dict->next != NULL)
+                        dict = dict->next;
+        }
+        else if (int_search < current_key)
+        {
+                while (ft_strcmp(search, dict->key) != 0 && dict->next != NULL)
+                        dict = dict->previous;
+        }
         return (dict);
 }
 
@@ -430,7 +433,7 @@ char *ft_substr(char *str, int pos, int len)
         int i;
         char *tmp;
 
-        tmp = (char *)malloc(sizeof(char) * len);
+        tmp = (char *)malloc(sizeof(char) * len + 1);
         i = 0;
 
         while (i < len)
@@ -438,6 +441,7 @@ char *ft_substr(char *str, int pos, int len)
                 tmp[i] = str[i + pos];
                 i++;
         }
+        tmp[i] = '\0';
         return (tmp);
 }
 
@@ -452,30 +456,23 @@ char **triple_tab(char *str)
 
         while (str[i] != '\0')
                 i++;
-
         len = i / 3;
         modulo = i % 3;
-
-        printf("\ndiviser = %d , modulo = %d\n\n", len, modulo);
-
         if (modulo != 0)
-                tab = malloc(sizeof(char) * (len + 1));
+                tab = malloc(sizeof(char *) * (len + 2));
         else
-                tab = malloc(sizeof(char) * (len + 2));
-
+                tab = malloc(sizeof(char *) * (len + 1));
         if (!tab)
                 return (0);
 
         i = 0;
         j = 0;
-
         if (modulo != 0)
         {
                 tab[0] = ft_substr(str, i, modulo);
                 j++;
                 i = modulo;
         }
-
         while (len > 0)
         {
                 tab[j] = ft_substr(str, i, 3);
@@ -519,23 +516,63 @@ void print_number(char *nbr, t_dict *dict)
         else
                 units = 0;
 
-        // printf("Hundred : %d || Dizaines : %d || units : %d\n\n", hundred, dizaine, units);
-
         if (hundred != 0)
         {
                 dict = go_to(dict, hundred);
-                printf("%s ", dict->value);
+                printf(" %s", dict->value);
                 dict = go_to(dict, 100);
-                printf("%s ", dict->value);
+                printf(" %s", dict->value);
         }
         if(dizaine != 0)
         {
                 dict = go_to(dict, dizaine);
-                printf("%s ", dict->value);
+                printf(" %s", dict->value);
         }
         if(units != 0)
         {
                 dict = go_to(dict, units);
-                printf("%s.", dict->value);
+                printf(" %s", dict->value);
         }
+        if(!hundred && !dizaine && !units)
+                return ;
+}
+
+void print_tab(t_dict *dict, char **tab)
+{
+    int size = 0;
+    int i = 0;
+    int power = 0;
+    t_dict *p_dict;
+
+    while (tab[size])
+        size++;
+
+    while (i < size)
+    {
+        print_number(tab[i], dict);
+        power = ((size - 1) - i) * 3;
+        if (power != 0 && strcmp(tab[i], "000") != 0)
+        {
+            char test[power + 2];
+
+            int k = 0;
+            while (power + 1 > 0)
+            {
+                if (k == 0)
+                    test[0] = '1';
+                else
+                    test[k] = '0';
+                k++;
+                power--;
+            }
+            test[k] = '\0';
+
+            p_dict = dict;
+            while (ft_strcmp(test, p_dict->key) != 0 && p_dict->next != NULL)
+                p_dict = p_dict->next;
+
+            printf(" %s ", p_dict->value);
+        }
+        i++;
+    }
 }

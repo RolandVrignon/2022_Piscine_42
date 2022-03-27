@@ -8,5 +8,5 @@ main.o: main.c utils.h
 utils.o: utils.c utils.h
 	gcc -Wall -Werror -Wextra -c utils.c
 
-clean:
+fclean:
 	rm *.o rush-02
