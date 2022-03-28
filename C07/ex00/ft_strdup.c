@@ -5,41 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 04:38:06 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/03/21 19:39:04 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/03/28 03:32:42 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/03/28 03:32:44 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stddef.h>
 #include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	n;
+
+	n = 0;
+	while (str[n])
+		n++;
+	return (n);
+}
 
 char	*ft_strdup(char *src)
 {
-	char	*str;
-	int		len;
 	int		i;
+	char	*p;
+	int		n;
 
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	str = malloc(sizeof(char) * len);
-	if (!str)
-		return (0);
+	n = ft_strlen(src);
+	p = malloc(sizeof(char) * n + 1);
+	if (p == NULL)
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0')
+	while (i < n)
 	{
-		str[i] = src[i];
+		p[i] = src[i];
 		i++;
 	}
-	return (str);
+	p[i] = '\0';
+	return (p);
 }
-
-// int main()
-// {
-//     char str[] = "Je testes Malloc";
-//     char *pt;
-//     pt = ft_strdup(str);
-// 	printf("Adresse : %p || Originale : %s\n", str, str);
-// 	printf("Adresse : %p || Copie : %s", pt, pt);
-//     free(pt);
-// }
+/*
+int	main()
+{
+	char *src ="qwqewefewfwe";
+	printf("%s\n", ft_strdup(src));
+}
+*/
