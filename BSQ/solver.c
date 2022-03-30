@@ -12,6 +12,25 @@
 
 #include "lib/utils.h"
 
+void	free_solution(t_solutions *solution)
+{
+	t_solutions	*prev;
+
+	while (solution != 0)
+	{
+		prev = solution->prev;
+		free(solution);
+		solution = prev;
+	}
+}
+
+int	is_ok(int j, int i, int l, t_infos *infos)
+{
+	if (j + l <= infos->line_length && i + l <= infos->lines)
+		return (1);
+	return (0);
+}
+
 t_solutions	*solve_process(t_solutions *solution, char **tab, t_infos *infos)
 {
 	t_point	*point;
@@ -21,7 +40,7 @@ t_solutions	*solve_process(t_solutions *solution, char **tab, t_infos *infos)
 
 	point = (t_point *)malloc(sizeof(t_point));
 	i = -1;
-	l = 1;
+	l = 0;
 	while (i++ + l <= infos->lines)
 	{
 		j = -1;
@@ -29,8 +48,7 @@ t_solutions	*solve_process(t_solutions *solution, char **tab, t_infos *infos)
 		{
 			point->x = j;
 			point->y = i;
-			while (check_points(tab, point, l, infos)
-				&& j + l <= infos->line_length && i + l <= infos->lines)
+			while (check_points(tab, point, l, infos) && is_ok(j, i, l, infos))
 			{
 				add_element(solution, i, j, l);
 				solution = solution->next;
@@ -38,6 +56,7 @@ t_solutions	*solve_process(t_solutions *solution, char **tab, t_infos *infos)
 			}
 		}
 	}
+	free(point);
 	return (solution);
 }
 
@@ -64,6 +83,7 @@ char	**solve(char **tab, t_infos *infos)
 		}
 		i++;
 	}
+	free_solution(solution);
 	return (tab);
 }
 
@@ -83,7 +103,7 @@ void	print_map(char **map, t_infos *infos, int line_length)
 		while (j < x)
 		{
 			write(1, &map[i][j], 1);
-			write(1, " ", 1);
+			write(1, "", 1);
 			j++;
 		}
 		write(1, "\n", 1);

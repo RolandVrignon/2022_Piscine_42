@@ -117,17 +117,17 @@ char	**ft_split(char *str, char *charset)
 	return (process(size, tab, str, charset));
 }
 
-// int main()
-// {
-//     char str[] = "BKI3fXhcuwKMzhuDGpPVdcBmflAEFSz1";
-//     char charset[] = "IU Ci0";
-//     char **tab;
-//     tab = ft_split(str, charset);
-//     int i = 0;
-//     while (tab[i])
-//     {
-//         printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
-//         i++;
-//     }
-//     return (0);
-// }
+int main()
+{
+    char str[] = "BKI3fXhcuwKMzhuDGpPVdcBmflAEFSz1";
+    char charset[] = "IU Ci0";
+    char **tab;
+    tab = ft_split(str, charset);
+    int i = 0;
+    while (tab[i])
+    {
+        printf("%d Adresse : %p : %s\n",i, tab[i], tab[i]);
+        i++;
+    }
+    return (0);
+}

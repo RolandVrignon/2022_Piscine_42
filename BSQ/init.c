@@ -28,6 +28,7 @@ t_infos	*get_informations(char *str)
 	line = ft_substr(str, 0, i - 3);
 	infos->lines = ft_atoi(line);
 	infos->line_length = 0;
+	free(line);
 	return (infos);
 }
 
@@ -64,6 +65,7 @@ char	**open_file(char *str)
 	fd = open(str, O_RDONLY);
 	read(fd, read_buffer, file_length);
 	lines = ft_split(read_buffer, "\n");
+	free(read_buffer);
 	return (lines);
 }
 
